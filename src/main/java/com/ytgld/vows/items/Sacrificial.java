@@ -1,0 +1,94 @@
+package com.ytgld.vows.items;
+
+import com.google.common.collect.Multimap;
+import com.ytgld.vows.Vows;
+import com.ytgld.vows.client.RenderVowsItem;
+import com.ytgld.vows.tool.Handler;
+import com.ytgld.vows.tool.Light;
+import net.minecraft.core.Holder;
+import net.minecraft.core.component.DataComponentType;
+import net.minecraft.core.component.DataComponents;
+import net.minecraft.network.chat.Component;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.ai.attributes.Attribute;
+import net.minecraft.world.entity.ai.attributes.AttributeModifier;
+import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.food.FoodProperties;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.item.UseAnim;
+import net.neoforged.neoforge.event.entity.living.LivingEntityUseItemEvent;
+
+import java.util.List;
+
+public class Sacrificial extends BaseVows{
+    public Sacrificial(Properties properties) {
+        super(properties);
+    }
+
+    @Override
+    public String itemName() {
+        return Handler.mixinName("sacrificial");
+    }
+
+    @Override
+    public List<RenderVowsItem.ColorAndImage> colorAndImage() {
+        return List.of(
+                new RenderVowsItem.ColorAndImage(Light.ARGB.color(255,20,255,20),
+                        Vows.fromNamespaceAndPath("textures/soul/soul_1.png")),
+                new RenderVowsItem.ColorAndImage(Light.ARGB.color(255,0,220,50),
+                        Vows.fromNamespaceAndPath("textures/soul/soul_2.png")),
+                new RenderVowsItem.ColorAndImage(Light.ARGB.color(255,50,200,0),
+                        Vows.fromNamespaceAndPath("textures/soul/soul_3.png")),
+                new RenderVowsItem.ColorAndImage(Light.ARGB.color(255,100,180,100),
+                        Vows.fromNamespaceAndPath("textures/soul/soul_4.png")),
+                new RenderVowsItem.ColorAndImage(Light.ARGB.color(255,10,180,10),
+                        Vows.fromNamespaceAndPath("textures/soul/soul_5.png"))
+        );
+    }
+
+    @Override
+    public void tickVows(LivingEntity entity) {
+        super.tickVows(entity);
+        if (entity instanceof Player player) {
+            if (Handler.has(player,Handler.mixinName("sacrificial"))) {
+                player.causeFoodExhaustion(0.025f);
+            }
+        }
+    }
+    public static void eat(LivingEntityUseItemEvent.Finish event){
+        LivingEntity livingEntity = event.getEntity();
+        if (livingEntity instanceof Player player) {
+            if (Handler.has(player,Handler.mixinName("sacrificial"))) {
+                ItemStack stack = event.getItem();
+                if (stack.getUseAnimation() == UseAnim.EAT){
+                    FoodProperties properties = stack.get(DataComponents.FOOD);
+                    if (properties != null) {
+                        float base = eatG(player);
+                        player.getFoodData().eat((int) (properties.nutrition() * base), properties.saturation() * base);
+                    }
+                }
+            }
+        }
+    }
+    public static float eatG(Player player){
+        return 0.66f;
+    }
+
+    @Override
+    public Multimap<Holder<Attribute>, AttributeModifier> doAttribute(LivingEntity livingEntity, Item item) {
+        Multimap<Holder<Attribute>, AttributeModifier> multimap = super.doAttribute(livingEntity, item);
+        multimap.put(Attributes.MAX_HEALTH,new AttributeModifier(Vows.fromNamespaceAndPath("sacrificial"),
+                0.1f, AttributeModifier.Operation.ADD_MULTIPLIED_BASE));
+        return multimap;
+    }
+
+    @Override
+    public void applyText(ItemStack stack, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
+        super.applyText(stack, tooltipComponents, tooltipFlag);
+        addText(tooltipComponents,Component.translatable("vows.vows.sacrificial.1"),true);
+        addText(tooltipComponents,Component.translatable("vows.vows.sacrificial.2"),false);
+    }
+}
