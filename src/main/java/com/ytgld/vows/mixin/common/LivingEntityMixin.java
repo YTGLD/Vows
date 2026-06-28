@@ -3,7 +3,7 @@ package com.ytgld.vows.mixin.common;
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
 import com.ytgld.vows.items.BaseVows;
-import com.ytgld.vows.items.vows.HungryWolf;
+import com.ytgld.vows.items.vows.hunger.HungryWolf;
 import com.ytgld.vows.tool.Handler;
 import com.ytgld.vows.tool.PlayerDataHandler;
 import net.minecraft.core.Holder;

@@ -15,6 +15,23 @@
   "vows.vows.famine_constraints.1": "接近饱腹时提供十分之一伤害和速度",
   "vows.vows.famine_constraints.2": "饥饿时减少约十分之二的伤害和速度",
 
+  "vows.vows.disaster": "恐怖的线条",
+  "item.vows.disaster": "灾难威胁",
+  "vows.vows.disaster.1": "无论饥饿与否，你始终可以疾跑",
+  "vows.vows.disaster.2": "饥饿时速度提高，最多增加五分之一",
+  "vows.vows.disaster.3": "始终感到反常的饥饿与疲劳",
+
+  "vows.vows.alms": "收下这魔鬼的赠礼",
+  "item.vows.alms": "邪恶的施舍",
+  "vows.vows.alms.1": "饥饿转换成生命的速度提高二分之一",
+  "vows.vows.alms.2": "最大生命降低十分之一",
+
+  "vows.vows.heavenly_wrath": "不可控的因素",
+  "item.vows.heavenly_wrath": "焚天之怒",
+  "vows.vows.heavenly_wrath.1": "宣告着接近死亡时力量和挥砍速度提高约十分之三",
+  "vows.vows.heavenly_wrath.2": "接近死亡时护甲值减半",
+
+
   "item.vows.checks_balances": "枯萎制衡",
   "vows.vows.checks_balances": "不灭的佳话，不朽的誓言",
   "vows.vows.checks_balances.1": "损失饥饿值带来灵魂护盾",

@@ -1,10 +1,8 @@
 package com.ytgld.vows.items;
 
 import com.ytgld.vows.Vows;
-import com.ytgld.vows.items.vows.ChecksBalances;
-import com.ytgld.vows.items.vows.FamineConstraints;
-import com.ytgld.vows.items.vows.HungryWolf;
-import com.ytgld.vows.items.vows.Sacrificial;
+import com.ytgld.vows.items.vows.hunger.*;
+import com.ytgld.vows.items.vows.war.HeavenlyWrath;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
@@ -26,6 +24,16 @@ public class VowsItems {
 
     public static final DeferredHolder<Item ,Item > ChecksBalances_ =
             REGISTRY.register("checks_balances",(Identifier)->new ChecksBalances(new Item.Properties().setId(ResourceKey.create(Registries.ITEM,Identifier))));
+
+    public static final DeferredHolder<Item ,Item > Disaster_ =
+            REGISTRY.register("disaster",(Identifier)->new Disaster(new Item.Properties().setId(ResourceKey.create(Registries.ITEM,Identifier))));
+
+
+    public static final DeferredHolder<Item ,Item > Alms_ =
+            REGISTRY.register("alms",(Identifier)->new Alms(new Item.Properties().setId(ResourceKey.create(Registries.ITEM,Identifier))));
+
+    public static final DeferredHolder<Item ,Item > HeavenlyWrath_ =
+            REGISTRY.register("heavenly_wrath",(Identifier)->new HeavenlyWrath(new Item.Properties().setId(ResourceKey.create(Registries.ITEM,Identifier))));
 
 
 

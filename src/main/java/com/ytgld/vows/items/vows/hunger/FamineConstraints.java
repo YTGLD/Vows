@@ -1,4 +1,4 @@
-package com.ytgld.vows.items.vows;
+package com.ytgld.vows.items.vows.hunger;
 
 import com.google.common.collect.Multimap;
 import com.ytgld.vows.Vows;

@@ -3,7 +3,9 @@
   "package": "com.ytgld.vows.mixin",
   "compatibilityLevel": "JAVA_25",
   "mixins": [
-    "common.LivingEntityMixin"
+    "common.FoodDataMixin",
+    "common.LivingEntityMixin",
+    "common.PlayerMixin"
   ],
   "injectors": {
     "defaultRequire": 1

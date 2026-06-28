@@ -20,6 +20,9 @@ public class VowsTab {
                             b.accept(VowsItems.HungryWolf_.get());
                             b.accept(VowsItems.FamineConstraints_.get());
                             b.accept(VowsItems.ChecksBalances_.get());
+                            b.accept(VowsItems.Disaster_.get());
+                            b.accept(VowsItems.Alms_.get());
+                            b.accept(VowsItems.HeavenlyWrath_.get());
                         })
                         .build();
             });
