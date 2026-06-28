@@ -1,0 +1,17 @@
+{
+  "required": true,
+  "package": "com.ytgld.vows.mixin",
+  "compatibilityLevel": "JAVA_25",
+  "mixins": [
+    "common.LivingEntityMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "overwrites": {
+    "requireAnnotations": true
+  },
+  "client": [
+    "cilent.blacksoul.GuiGraphicsExtractorMixin"
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "vows.vows": "誓令",
+  "vows.vows.attribute": "宣告誓言后：",
+
+
+  "item.vows.hungry_wolf": "饥饿之狼",
+  "vows.vows.hungry_wolf": "饥饿如狼，贪婪之约",
+  "vows.vows.hungry_wolf.1": "进食时间缩短五分之二",
+  "vows.vows.hungry_wolf.2": "进食后获得治疗和力量效果",
+  "vows.vows.hungry_wolf.3": "食物恢复的饥饿减少一半",
+
+  "item.vows.famine_constraints": "饥荒制约",
+  "vows.vows.famine_constraints": "反制黑暗的手段之一",
+  "vows.vows.famine_constraints.1": "接近饱腹时提供十分之一伤害和速度",
+  "vows.vows.famine_constraints.2": "饥饿时减少约十分之二的伤害和速度",
+
+  "item.vows.sacrificial": "腐朽祭祀者",
+  "vows.vows.sacrificial": "幽灵的判官，感受绝望",
+  "vows.vows.sacrificial.1": "食物恢复的饥饿值和饱和度增加约三分之二",
+  "vows.vows.sacrificial.2": "始终感到异常疲劳和饥饿"
+}
