@@ -58,7 +58,7 @@ public class Sacrificial extends BaseVows {
         super.tickVows(entity);
         if (entity instanceof Player player) {
             if (Handler.has(player,Handler.mixinName("sacrificial"))) {
-                player.causeFoodExhaustion(0.025f);
+                player.causeFoodExhaustion(hunger(player));
             }
         }
     }
@@ -78,7 +78,10 @@ public class Sacrificial extends BaseVows {
         }
     }
     public static float eatG(Player player){
-        return 0.66f;
+        return Handler.doValue(0.66f,player);
+    }
+    public static float hunger(Player player){
+        return Handler.doValue(0.0125f,player);
     }
 
     @Override

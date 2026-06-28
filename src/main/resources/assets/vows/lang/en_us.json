@@ -1,6 +1,7 @@
 {
   "vows.vows": "誓令",
   "vows.vows.attribute": "宣告誓言后：",
+  "vows.vows.has": "你已宣告此誓言",
 
 
   "item.vows.hungry_wolf": "饥饿之狼",
@@ -13,6 +14,12 @@
   "vows.vows.famine_constraints": "反制黑暗的手段之一",
   "vows.vows.famine_constraints.1": "接近饱腹时提供十分之一伤害和速度",
   "vows.vows.famine_constraints.2": "饥饿时减少约十分之二的伤害和速度",
+
+  "item.vows.checks_balances": "枯萎制衡",
+  "vows.vows.checks_balances": "不灭的佳话，不朽的誓言",
+  "vows.vows.checks_balances.1": "损失饥饿值带来灵魂护盾",
+  "vows.vows.checks_balances.2": "免疫饥饿带来的伤害",
+  "vows.vows.checks_balances.3": "始终感到反常的饥饿与疲劳",
 
   "item.vows.sacrificial": "腐朽祭祀者",
   "vows.vows.sacrificial": "幽灵的判官，感受绝望",

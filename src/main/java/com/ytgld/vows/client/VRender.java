@@ -11,6 +11,7 @@ import net.minecraft.client.renderer.BindGroupLayouts;
 
 import static com.mojang.blaze3d.platform.BlendFactor.*;
 import static net.minecraft.client.renderer.RenderPipelines.GLOBALS_SNIPPET;
+import static net.minecraft.client.renderer.RenderPipelines.GUI_TEXTURED_SNIPPET;
 
 public class VRender  {
 
@@ -26,6 +27,10 @@ public class VRender  {
                     .withDepthStencilState(DepthStencilState.DEFAULT)
                     .withLocation(Vows.fromNamespaceAndPath("pipeline/position_tex_color_black")).build());
 
+    public static final RenderPipeline renderPipeline =RenderPipeline.builder(GUI_TEXTURED_SNIPPET).
+            withLocation("pipeline/gui_textured").withColorTargetState(vColorTargetState).build();
+
+
     public static final RenderPipeline renderPipelineLive =
             (RenderPipeline.builder(RenderPipeline.builder(GLOBALS_SNIPPET).
                             withBindGroupLayout(BindGroupLayouts.MATRICES_PROJECTION).
@@ -36,6 +41,18 @@ public class VRender  {
                     ).withColorTargetState(vColorTargetState)
                     .withDepthStencilState(DepthStencilState.DEFAULT)
                     .withLocation(Vows.fromNamespaceAndPath("pipeline/live")).build());
+
+    public static final RenderPipeline renderPipelineLiveLow =
+            (RenderPipeline.builder(RenderPipeline.builder(GLOBALS_SNIPPET).
+                            withBindGroupLayout(BindGroupLayouts.MATRICES_PROJECTION).
+                            withVertexShader(Vows.fromNamespaceAndPath("core/live_low"))
+                            .withFragmentShader(Vows.fromNamespaceAndPath("core/live_low"))
+                            .withBindGroupLayout(BindGroupLayouts.SAMPLER0)
+                            .withColorTargetState(new ColorTargetState(BlendFunction.TRANSLUCENT))
+                            .withVertexBinding(0, DefaultVertexFormat.POSITION_TEX_COLOR).withPrimitiveTopology(PrimitiveTopology.QUADS).buildSnippet()
+                    ).withColorTargetState(new ColorTargetState(BlendFunction.TRANSLUCENT))
+                    .withDepthStencilState(DepthStencilState.DEFAULT)
+                    .withLocation(Vows.fromNamespaceAndPath("pipeline/live_low")).build());
 
 
 }

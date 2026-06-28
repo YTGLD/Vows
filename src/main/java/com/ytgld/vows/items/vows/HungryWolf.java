@@ -90,10 +90,10 @@ public class HungryWolf extends BaseVows {
     }
 
     public static float eatSpeed(Player player){
-        return 1 -(2/5F);
+        return 1 - Handler.doValue(0.4f,player);
     }
     public static float theValue(Player player){
-        return 1/2f;
+        return Handler.doValue(0.5f,player);
     }
     public static void addEffect(Player player, Holder<MobEffect> holder, int lvl , int time){
         player.addEffect(new MobEffectInstance(holder,time,lvl,true,true));

@@ -38,8 +38,17 @@ public abstract class BaseVows extends Item {
     @Override
     public InteractionResult use(Level level, Player player, InteractionHand usedHand) {
         ItemStack stack = player.getItemInHand(usedHand);
-        Handler.addVows(player, itemName());
-        stack.shrink(1);
+        if (Handler.getVowsItems(player).contains(player.getItemInHand(usedHand).getItem())) {
+            player.sendOverlayMessage(Component.translatable("vows.vows.has").withStyle(Style.EMPTY.withColor(0xffff0000)));
+            return super.use(level, player, usedHand);
+        }else {
+            if (Handler.getVowsItems(player).size() < 3) {
+                Handler.addVows(player, itemName());
+                stack.shrink(1);
+            } else {
+                player.sendOverlayMessage(Component.translatable("vows.vows.has").withStyle(Style.EMPTY.withColor(0xffff0000)));
+            }
+        }
         return super.use(level, player, usedHand);
     }
     @Override

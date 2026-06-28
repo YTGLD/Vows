@@ -1,25 +1,37 @@
 package com.ytgld.vows.event;
 
 import com.google.common.collect.HashMultimap;
+import com.ytgld.vows.Vows;
 import com.ytgld.vows.items.BaseVows;
+import com.ytgld.vows.items.vows.ChecksBalances;
 import com.ytgld.vows.items.vows.HungryWolf;
 import com.ytgld.vows.items.vows.Sacrificial;
 import com.ytgld.vows.tool.Handler;
 import com.ytgld.vows.tool.PlayerDataHandler;
+import com.ytgld.vows.tool.VowsTooltipRenderUtil;
 import net.minecraft.ChatFormatting;
+import net.minecraft.client.gui.GuiGraphicsExtractor;
+import net.minecraft.client.gui.screens.inventory.tooltip.ClientTooltipComponent;
+import net.minecraft.client.gui.screens.inventory.tooltip.TooltipRenderUtil;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
+import net.minecraft.network.chat.Style;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.player.PlayerSkin;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.neoforge.client.event.RenderTooltipEvent;
 import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.common.util.AttributeTooltipContext;
 import net.neoforged.neoforge.common.util.AttributeUtil;
 import net.neoforged.neoforge.event.AddAttributeTooltipsEvent;
 import net.neoforged.neoforge.event.GatherSkippedAttributeTooltipsEvent;
+import net.neoforged.neoforge.event.entity.living.LivingDamageEvent;
 import net.neoforged.neoforge.event.entity.living.LivingEntityUseItemEvent;
+import net.neoforged.neoforge.event.entity.living.LivingIncomingDamageEvent;
+import net.neoforged.neoforge.event.entity.player.ItemTooltipEvent;
 import net.neoforged.neoforge.event.tick.EntityTickEvent;
 
 import java.util.ArrayList;
@@ -29,6 +41,7 @@ import java.util.Set;
 public class VowsEvent {
     @SubscribeEvent
     public void Tick(EntityTickEvent.Pre event){
+        SoulShieldHealHandler.tick(event);
         if (event.getEntity() instanceof LivingEntity livingEntity) {
             Set<String> set = livingEntity.getData(PlayerDataHandler.vVowsSet);
             for (String name : set){
@@ -46,6 +59,30 @@ public class VowsEvent {
     @SubscribeEvent
     public void StartUseItemEvent(LivingEntityUseItemEvent.Start event){
         HungryWolf.speed(event);
+    }
+    @SubscribeEvent
+    public void LivingDamageEventPre(LivingDamageEvent.Pre event) {
+        SoulShieldHealHandler.hurt(event);
+    }
+    @SubscribeEvent
+    public void LivingDamageEventPre(LivingIncomingDamageEvent event) {
+        ChecksBalances.UmmDamage(event);
+    }
+
+
+
+    @SubscribeEvent
+    public void AddAttributeTooltipsEvent(ItemTooltipEvent event){
+        Player player = event.getEntity();
+        Item item = event.getItemStack().getItem();
+
+        if (Handler.has(player, item)) {
+            if (!event.getFlags().hasShiftDown()){
+                event.getToolTip().clear();
+            }
+            event.getToolTip().add(Component.translatable("vows.vows.has").withStyle(Style.EMPTY.withColor(0xffff0000)));
+            event.getToolTip().add(Component.translatable("key.keyboard.left.shift").withStyle(Style.EMPTY.withColor(0xffff0000)));
+        }
     }
     @SubscribeEvent
     public void AddAttributeTooltipsEvent(AddAttributeTooltipsEvent evt){

@@ -1,6 +1,7 @@
 package com.ytgld.vows.items;
 
 import com.ytgld.vows.Vows;
+import com.ytgld.vows.items.vows.ChecksBalances;
 import com.ytgld.vows.items.vows.FamineConstraints;
 import com.ytgld.vows.items.vows.HungryWolf;
 import com.ytgld.vows.items.vows.Sacrificial;
@@ -23,6 +24,8 @@ public class VowsItems {
     public static final DeferredHolder<Item ,Item > FamineConstraints_ =
             REGISTRY.register("famine_constraints",(Identifier)->new FamineConstraints(new Item.Properties().setId(ResourceKey.create(Registries.ITEM,Identifier))));
 
+    public static final DeferredHolder<Item ,Item > ChecksBalances_ =
+            REGISTRY.register("checks_balances",(Identifier)->new ChecksBalances(new Item.Properties().setId(ResourceKey.create(Registries.ITEM,Identifier))));
 
 
 

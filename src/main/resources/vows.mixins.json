@@ -12,6 +12,7 @@
     "requireAnnotations": true
   },
   "client": [
+    "cilent.HUDMixin",
     "cilent.blacksoul.GuiGraphicsExtractorMixin"
   ]
 }

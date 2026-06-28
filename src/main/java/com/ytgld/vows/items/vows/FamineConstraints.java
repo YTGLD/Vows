@@ -82,9 +82,9 @@ public class FamineConstraints extends BaseVows {
     }
 
     public float getDamageAndSpeed (LivingEntity livingEntity){
-        return 0.15f;
+        return Handler.doValue(0.15f,livingEntity);
     }
     public float getWeakness (LivingEntity livingEntity){
-        return -0.2f;
+        return Handler.doValue(-0.2f,livingEntity);
     }
 }
