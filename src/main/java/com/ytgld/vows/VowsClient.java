@@ -24,7 +24,7 @@ public class VowsClient {
     public VowsClient(ModContainer container) {
         container.registerExtensionPoint(IConfigScreenFactory.class, ConfigurationScreen::new);
     }
-    @SubscribeEvent // on the mod event bus only on the physical client
+    @SubscribeEvent
     public static void registerEntityRenderers(EntityRenderersEvent.RegisterRenderers event) {
         event.registerBlockEntityRenderer(
                 VowsBlockEntitys.VowsBlockEntity_.get(),

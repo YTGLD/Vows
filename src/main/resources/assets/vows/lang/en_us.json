@@ -49,6 +49,17 @@
   "vows.vows.break_sword.2": "自身难以治疗",
 
 
+  "vows.vows.war_fortress": "无法理喻的威压",
+  "item.vows.war_fortress": "战争要塞",
+  "vows.vows.war_fortress.1": "攻击削弱目标，若无法施加则造成额外伤害",
+  "vows.vows.war_fortress.2": "造成的任意伤害降低五分之一",
+
+  "vows.vows.death_string": "享受最后的起舞",
+  "item.vows.death_string": "死亡之弦",
+  "vows.vows.death_string.1": "造成的伤害会随着挥砍逐渐提高",
+  "vows.vows.death_string.2": "对目标的第一击伤害降低十分之九",
+
+
   "item.vows.checks_balances": "枯萎制衡",
   "vows.vows.checks_balances": "不灭的佳话，不朽的誓言",
   "vows.vows.checks_balances.1": "损失饥饿值带来灵魂护盾",

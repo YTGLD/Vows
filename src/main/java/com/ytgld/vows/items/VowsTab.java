@@ -27,6 +27,8 @@ public class VowsTab {
                             b.accept(VowsItems.HeavenlyWrath_.get());
                             b.accept(VowsItems.BreakingFate_.get());
                             b.accept(VowsItems.BreakSword_.get());
+                            b.accept(VowsItems.WarFortress_.get());
+                            b.accept(VowsItems.DeathString_.get());
                         })
                         .build();
             });

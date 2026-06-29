@@ -63,14 +63,14 @@ public class ColorPart extends SingleQuadParticle {
             ColorPart particle = new ColorPart(clientLevel, v,v1,v2, (float) v3, (float) v4, (float) v5,sprite.get(textureAtlasSprite));
             particle.setSpriteFromAge(this.sprite);
             int color = simpleParticleType.getColor();
-            int as = (color >> 24) & 0xFF;
-            int rs = (color >> 16) & 0xFF;
-            int gs = (color >> 8) & 0xFF;
-            int bs = color & 0xFF;
+            float as = (color >> 24) & 0xFF;
+            float rs = (color >> 16) & 0xFF;
+            float gs = (color >> 8) & 0xFF;
+            float bs = color & 0xFF;
 
-            rs /= 255;
-            gs /= 255;
-            bs /= 255;
+            rs /= 255f;
+            gs /= 255f;
+            bs /= 255f;
             particle.setColor(rs,gs,bs);
             return particle;
         }

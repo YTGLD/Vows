@@ -7,6 +7,8 @@ import com.ytgld.vows.items.vows.hunger.HungryWolf;
 import com.ytgld.vows.items.vows.hunger.Sacrificial;
 import com.ytgld.vows.items.vows.war.BreakSword;
 import com.ytgld.vows.items.vows.war.BreakingFate;
+import com.ytgld.vows.items.vows.war.DeathString;
+import com.ytgld.vows.items.vows.war.WarFortress;
 import com.ytgld.vows.tool.Handler;
 import com.ytgld.vows.tool.PlayerDataHandler;
 import net.minecraft.ChatFormatting;
@@ -60,6 +62,8 @@ public class VowsEvent {
     public void LivingDamageEventPre(LivingDamageEvent.Pre event) {
         SoulShieldHealHandler.hurt(event);
         BreakingFate.hurt(event);
+        WarFortress.damage(event);
+        DeathString.damage(event);
     }
     @SubscribeEvent
     public void LivingDamageEventPost(LivingDamageEvent.Post event) {

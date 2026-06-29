@@ -3,9 +3,7 @@ package com.ytgld.vows.items;
 import com.ytgld.vows.Vows;
 import com.ytgld.vows.block.VowsBlocks;
 import com.ytgld.vows.items.vows.hunger.*;
-import com.ytgld.vows.items.vows.war.BreakSword;
-import com.ytgld.vows.items.vows.war.BreakingFate;
-import com.ytgld.vows.items.vows.war.HeavenlyWrath;
+import com.ytgld.vows.items.vows.war.*;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
@@ -47,6 +45,12 @@ public class VowsItems {
 
     public static final DeferredHolder<Item ,Item > BreakSword_ =
             REGISTRY.register("break_sword",(Identifier)->new BreakSword(new Item.Properties().setId(ResourceKey.create(Registries.ITEM,Identifier))));
+
+    public static final DeferredHolder<Item ,Item > WarFortress_ =
+            REGISTRY.register("war_fortress",(Identifier)->new WarFortress(new Item.Properties().setId(ResourceKey.create(Registries.ITEM,Identifier))));
+
+    public static final DeferredHolder<Item ,Item > DeathString_ =
+            REGISTRY.register("death_string",(Identifier)->new DeathString(new Item.Properties().setId(ResourceKey.create(Registries.ITEM,Identifier))));
 
 
 
