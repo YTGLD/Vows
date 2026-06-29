@@ -93,10 +93,18 @@ public class Sacrificial extends BaseVows {
     public static class Recipe implements RegisterRecipeConfig {
 
         @Override
+        public List<ItemStack> itemList() {
+            return List.of(
+                    Items.POISONOUS_POTATO.getDefaultInstance(),
+                    Items.ROTTEN_FLESH.getDefaultInstance(),
+                    Items.DIAMOND_HOE.getDefaultInstance()
+            );
+        }
+        @Override
         public boolean canRecipe(Set<Item> items) {
-            return items.contains(Items.POISONOUS_POTATO)
-                    && items.contains(Items.ROTTEN_FLESH)
-                    && items.contains(Items.DIAMOND_HOE);
+            return items.contains(this.itemList().get(0).getItem())
+                    && items.contains(this.itemList().get(1).getItem())
+                    && items.contains(this.itemList().get(2).getItem());
         }
 
         @Override

@@ -5,6 +5,8 @@ import com.ytgld.vows.client.RenderVowsItem;
 import com.ytgld.vows.items.BaseVows;
 import com.ytgld.vows.tool.Handler;
 import com.ytgld.vows.tool.Light;
+import com.ytgld.vows.tool.RecipePlugin;
+import com.ytgld.vows.tool.RegisterRecipeConfig;
 import net.minecraft.core.Holder;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.network.chat.Component;
@@ -15,12 +17,11 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.food.FoodData;
 import net.minecraft.world.food.FoodProperties;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.ItemUseAnimation;
-import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.item.*;
 import net.neoforged.neoforge.event.entity.living.LivingEntityUseItemEvent;
 
 import java.util.List;
+import java.util.Set;
 
 public class HungryWolf extends BaseVows {
     public HungryWolf(Properties properties) {
@@ -98,4 +99,30 @@ public class HungryWolf extends BaseVows {
     public static void addEffect(Player player, Holder<MobEffect> holder, int lvl , int time){
         player.addEffect(new MobEffectInstance(holder,time,lvl,true,true));
     }
+    @RecipePlugin
+    public static class Recipe implements RegisterRecipeConfig {
+
+        @Override
+        public List<ItemStack> itemList() {
+            return List.of(
+                    Items.GOLDEN_APPLE.getDefaultInstance(),
+                    Items.ROTTEN_FLESH.getDefaultInstance(),
+                    Items.DIAMOND.getDefaultInstance(),
+                    Items.COOKED_BEEF.getDefaultInstance()
+            );
+        }
+        @Override
+        public boolean canRecipe(Set<Item> items) {
+            return items.contains(this.itemList().get(0).getItem())
+                    && items.contains(this.itemList().get(1).getItem())
+                    && items.contains(this.itemList().get(2).getItem())
+                    && items.contains(this.itemList().get(3).getItem());
+        }
+
+        @Override
+        public String output() {
+            return Handler.mixinName("hungry_wolf");
+        }
+    }
+
 }
