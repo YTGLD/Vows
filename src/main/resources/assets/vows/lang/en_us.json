@@ -31,6 +31,17 @@
   "vows.vows.heavenly_wrath.1": "宣告着接近死亡时力量和挥砍速度提高约十分之三",
   "vows.vows.heavenly_wrath.2": "接近死亡时护甲值减半",
 
+  "vows.vows.breaking_fate": "让它们死！",
+  "item.vows.breaking_fate": "破命之约",
+  "vows.vows.breaking_fate.1": "损失生命带来加成",
+  "vows.vows.breaking_fate.2": "对伤害的敏感度提高五分之一",
+
+
+  "vows.vows.break_sword": "狼狈的誓言，力量的索取",
+  "item.vows.break_sword": "破剑者",
+  "vows.vows.break_sword.1": "造成的十分之一伤害会转换为生命值",
+  "vows.vows.break_sword.2": "自身难以治疗",
+
 
   "item.vows.checks_balances": "枯萎制衡",
   "vows.vows.checks_balances": "不灭的佳话，不朽的誓言",

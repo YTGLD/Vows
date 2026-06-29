@@ -5,6 +5,8 @@ import com.ytgld.vows.items.BaseVows;
 import com.ytgld.vows.items.vows.hunger.ChecksBalances;
 import com.ytgld.vows.items.vows.hunger.HungryWolf;
 import com.ytgld.vows.items.vows.hunger.Sacrificial;
+import com.ytgld.vows.items.vows.war.BreakSword;
+import com.ytgld.vows.items.vows.war.BreakingFate;
 import com.ytgld.vows.tool.Handler;
 import com.ytgld.vows.tool.PlayerDataHandler;
 import net.minecraft.ChatFormatting;
@@ -23,6 +25,7 @@ import net.neoforged.neoforge.event.AddAttributeTooltipsEvent;
 import net.neoforged.neoforge.event.GatherSkippedAttributeTooltipsEvent;
 import net.neoforged.neoforge.event.entity.living.LivingDamageEvent;
 import net.neoforged.neoforge.event.entity.living.LivingEntityUseItemEvent;
+import net.neoforged.neoforge.event.entity.living.LivingHealEvent;
 import net.neoforged.neoforge.event.entity.living.LivingIncomingDamageEvent;
 import net.neoforged.neoforge.event.entity.player.ItemTooltipEvent;
 import net.neoforged.neoforge.event.tick.EntityTickEvent;
@@ -56,6 +59,15 @@ public class VowsEvent {
     @SubscribeEvent
     public void LivingDamageEventPre(LivingDamageEvent.Pre event) {
         SoulShieldHealHandler.hurt(event);
+        BreakingFate.hurt(event);
+    }
+    @SubscribeEvent
+    public void LivingDamageEventPost(LivingDamageEvent.Post event) {
+        BreakSword.healLife(event);
+    }
+    @SubscribeEvent
+    public void LivingDamageEventPost(LivingHealEvent event) {
+        BreakSword.doHeal(event);
     }
     @SubscribeEvent
     public void LivingDamageEventPre(LivingIncomingDamageEvent event) {

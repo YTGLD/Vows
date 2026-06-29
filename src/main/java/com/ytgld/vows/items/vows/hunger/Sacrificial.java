@@ -83,15 +83,6 @@ public class Sacrificial extends BaseVows {
     public static float hunger(Player player){
         return Handler.doValue(0.0125f,player);
     }
-
-    @Override
-    public Multimap<Holder<Attribute>, AttributeModifier> doAttribute(LivingEntity livingEntity, Item item) {
-        Multimap<Holder<Attribute>, AttributeModifier> multimap = super.doAttribute(livingEntity, item);
-        multimap.put(Attributes.MAX_HEALTH,new AttributeModifier(Vows.fromNamespaceAndPath("sacrificial"),
-                0.1f, AttributeModifier.Operation.ADD_MULTIPLIED_BASE));
-        return multimap;
-    }
-
     @Override
     public void applyText(ItemStack stack, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
         super.applyText(stack, tooltipComponents, tooltipFlag);

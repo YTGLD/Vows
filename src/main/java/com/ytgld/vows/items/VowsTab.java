@@ -23,6 +23,8 @@ public class VowsTab {
                             b.accept(VowsItems.Disaster_.get());
                             b.accept(VowsItems.Alms_.get());
                             b.accept(VowsItems.HeavenlyWrath_.get());
+                            b.accept(VowsItems.BreakingFate_.get());
+                            b.accept(VowsItems.BreakSword_.get());
                         })
                         .build();
             });

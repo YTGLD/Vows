@@ -10,9 +10,9 @@ out vec4 fragColor;
 
 void main() {
     vec2 uv = texCoord0;
-    float wave1 = sin(uv.y * 15.0 + GameTime * 1800) * 0.032;
-    float wave2 = cos(uv.x * 20.0 + GameTime * 1800 * 1.3) * 0.0215;
-    float wave3 = sin((uv.x + uv.y) * 30.0 + GameTime * 1800 * 0.7) * 0.021;
+    float wave1 = sin(uv.y * 15.0 + GameTime * 1000) * 0.02;
+    float wave2 = cos(uv.x * 20.0 + GameTime * 1000 * 1.3) * 0.015;
+    float wave3 = sin((uv.x + uv.y) * 30.0 + GameTime * 1000 * 0.7) * 0.01;
     vec2 offset = vec2(wave1 + wave3, wave2 + wave3);
     vec2 deformedUV = uv + offset;
     deformedUV = clamp(deformedUV, 0.0, 1.0);
