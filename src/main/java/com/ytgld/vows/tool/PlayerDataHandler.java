@@ -2,8 +2,10 @@ package com.ytgld.vows.tool;
 
 import com.mojang.serialization.Codec;
 import com.ytgld.vows.Vows;
+import com.ytgld.vows.attributre.IntSyncHandler;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.RegistryFriendlyByteBuf;
+import net.minecraft.network.codec.ByteBufCodecs;
 import net.minecraft.server.level.ServerPlayer;
 import net.neoforged.neoforge.attachment.AttachmentSyncHandler;
 import net.neoforged.neoforge.attachment.AttachmentType;
@@ -26,6 +28,21 @@ public class PlayerDataHandler {
             () -> AttachmentType.<Set<String>>builder(() -> new HashSet<>())
                     .sync(new StringSetSync())
                     .serialize(StringSetCodec.CODEC.fieldOf("vows_set"))
+                    .build()
+    );
+    public static final Supplier<AttachmentType<String>> trueVowsBlock = ATTACHMENT_TYPES.register(
+            "vows_set_block",
+            () -> AttachmentType.builder(() -> "")
+                    .sync(ByteBufCodecs.STRING_UTF8)
+                    .serialize(Codec.STRING.fieldOf("vows_set_block"))
+                    .build()
+    );
+
+    public static final Supplier<AttachmentType<Integer>> ineAlpha = ATTACHMENT_TYPES.register(
+            "alpha",
+            () -> AttachmentType.builder(() -> 0)
+                    .sync(new IntSyncHandler())
+                    .serialize(Codec.INT.fieldOf("alpha"))
                     .build()
     );
     public static final Supplier<AttachmentType<CompoundTag>> vowsCompoundTag = ATTACHMENT_TYPES.register(

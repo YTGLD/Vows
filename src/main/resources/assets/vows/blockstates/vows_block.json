@@ -1,0 +1,7 @@
+{
+	"variants": {
+		"": {
+			"model": "vows:block/vows_block"
+		}
+	}
+}

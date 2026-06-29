@@ -2,6 +2,9 @@ package com.ytgld.vows;
 
 import com.mojang.logging.LogUtils;
 import com.ytgld.vows.attributre.VowsAttributes;
+import com.ytgld.vows.block.VowsBlockEntitys;
+import com.ytgld.vows.block.VowsBlocks;
+import com.ytgld.vows.client.partclie.Particles;
 import com.ytgld.vows.event.VowsEvent;
 import com.ytgld.vows.items.VowsItems;
 import com.ytgld.vows.items.VowsTab;
@@ -30,6 +33,9 @@ public class Vows {
         VowsTab.REGISTRY.register(modEventBus);
         VowsAttributes.ATTRIBUTES.register(modEventBus);
         VowsAttributes.ATTACHMENT_TYPES.register(modEventBus);
+        VowsBlockEntitys.REGISTER.register(modEventBus);
+        VowsBlocks.REGISTER.register(modEventBus);
+        Particles.PARTICLE_TYPES.register(modEventBus);
         NeoForge.EVENT_BUS.addListener(PlayerEvent.Clone.class,(event)->{
             if (event.isWasDeath() && event.getOriginal().hasData(PlayerDataHandler.vVowsSet)) {
                 event.getEntity().getData(PlayerDataHandler.vVowsSet).clear();

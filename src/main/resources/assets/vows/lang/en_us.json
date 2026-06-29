@@ -2,7 +2,11 @@
   "vows.vows": "誓令",
   "vows.vows.attribute": "宣告誓言后：",
   "vows.vows.has": "你已宣告此誓言",
-
+  "vows.vows.max": "你已宣告太多的誓言",
+  "vows.attribute.soul_shield": "灵魂护盾容量",
+  "vows.attribute.soul_shield_speed": "灵魂护盾恢复速度",
+  "vows.attribute.soul_shield_heal_cooldown": "最大灵魂护盾冷却时间",
+  "vows.attribute.soul_shield_stronger": "灵魂护盾强度",
 
   "item.vows.hungry_wolf": "饥饿之狼",
   "vows.vows.hungry_wolf": "饥饿如狼，贪婪之约",

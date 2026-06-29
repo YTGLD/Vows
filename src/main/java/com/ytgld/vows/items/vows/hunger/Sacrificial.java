@@ -6,6 +6,8 @@ import com.ytgld.vows.client.RenderVowsItem;
 import com.ytgld.vows.items.BaseVows;
 import com.ytgld.vows.tool.Handler;
 import com.ytgld.vows.tool.Light;
+import com.ytgld.vows.tool.RecipePlugin;
+import com.ytgld.vows.tool.RegisterRecipeConfig;
 import net.minecraft.core.Holder;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.network.chat.Component;
@@ -15,13 +17,11 @@ import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.food.FoodProperties;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.ItemUseAnimation;
-import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.item.*;
 import net.neoforged.neoforge.event.entity.living.LivingEntityUseItemEvent;
 
 import java.util.List;
+import java.util.Set;
 
 public class Sacrificial extends BaseVows {
     public Sacrificial(Properties properties) {
@@ -88,5 +88,20 @@ public class Sacrificial extends BaseVows {
         super.applyText(stack, tooltipComponents, tooltipFlag);
         addText(tooltipComponents,Component.translatable("vows.vows.sacrificial.1"),true);
         addText(tooltipComponents,Component.translatable("vows.vows.sacrificial.2"),false);
+    }
+    @RecipePlugin
+    public static class Recipe implements RegisterRecipeConfig {
+
+        @Override
+        public boolean canRecipe(Set<Item> items) {
+            return items.contains(Items.POISONOUS_POTATO)
+                    && items.contains(Items.ROTTEN_FLESH)
+                    && items.contains(Items.DIAMOND_HOE);
+        }
+
+        @Override
+        public String output() {
+            return Handler.mixinName("sacrificial");
+        }
     }
 }

@@ -45,8 +45,9 @@ public abstract class BaseVows extends Item {
             if (Handler.getVowsItems(player).size() < 3) {
                 Handler.addVows(player, itemName());
                 stack.shrink(1);
+                return InteractionResult.PASS;
             } else {
-                player.sendOverlayMessage(Component.translatable("vows.vows.has").withStyle(Style.EMPTY.withColor(0xffff0000)));
+                player.sendOverlayMessage(Component.translatable("vows.vows.max").withStyle(Style.EMPTY.withColor(0xffff0000)));
             }
         }
         return super.use(level, player, usedHand);

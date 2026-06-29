@@ -24,12 +24,14 @@ public class Handler {
         return strings.contains(itemName);
     }
     public static Set<Item> getVowsItems(LivingEntity player){
-        Set<String> strings = player.getData(PlayerDataHandler.vVowsSet);
         Set<Item> set = new HashSet<>();
-        if (!strings.isEmpty()) {
-            for (String name : strings){
-                Item item = BuiltInRegistries.ITEM.getValue(Identifier.parse(name));
-                set.add(item);
+        if (player!=null) {
+            Set<String> strings = player.getData(PlayerDataHandler.vVowsSet);
+            if (!strings.isEmpty()) {
+                for (String name : strings) {
+                    Item item = BuiltInRegistries.ITEM.getValue(Identifier.parse(name));
+                    set.add(item);
+                }
             }
         }
         return set;
@@ -67,9 +69,9 @@ public class Handler {
     public static <T> T getData(Supplier<AttachmentType<T>> type,Player player) {
         return player.getData(type);
     }
-    public static void addVows(Player player,String itemName){
+    public static boolean addVows(Player player,String itemName){
         Set<String> strings = player.getData(PlayerDataHandler.vVowsSet);
-        strings.add(itemName);
+        return strings.add(itemName);
     }
     public static Item getVowsItemForName(String itemName){
         return BuiltInRegistries.ITEM.getValue(Identifier.parse(itemName));
