@@ -16,6 +16,8 @@ public class VowsTab {
                         .title(Component.translatable("vows.vows"))
                         .icon(()->new ItemStack(VowsItems.Sacrificial_))
                         .displayItems((a,b)->{
+                            b.accept(VowsItems.VowsBlockItem.get());
+
                             b.accept(VowsItems.Sacrificial_.get());
                             b.accept(VowsItems.HungryWolf_.get());
                             b.accept(VowsItems.FamineConstraints_.get());

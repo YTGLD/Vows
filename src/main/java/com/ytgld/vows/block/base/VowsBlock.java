@@ -1,6 +1,8 @@
 package com.ytgld.vows.block.base;
 
 import com.ytgld.vows.block.VowsBlockEntitys;
+import com.ytgld.vows.items.BaseVows;
+import com.ytgld.vows.items.VowsItems;
 import com.ytgld.vows.tool.Handler;
 import com.ytgld.vows.tool.PlayerDataHandler;
 import net.minecraft.core.BlockPos;
@@ -46,7 +48,7 @@ public class VowsBlock extends Block implements EntityBlock {
     public VowsBlock(Properties properties) {
         super(properties
                 .strength(4)
-                .lightLevel((state)->12)
+                .lightLevel((state)->state.getValue(ISHasVowsItem) ? 12 : 0)
                 .sound(SoundType.NETHER_BRICKS)
         );
         this.registerDefaultState(this.stateDefinition.any().setValue(ISHasVowsItem, false));
@@ -95,6 +97,10 @@ public class VowsBlock extends Block implements EntityBlock {
                     strings.add(identifier.toString());
                     stack.shrink(1);
                 }
+                if (item instanceof BaseVows) {
+                    vowsBlockEntity.setData(PlayerDataHandler.trueVowsBlock.get(), BuiltInRegistries.ITEM.getKey(item).toString());
+                    vowsBlockEntity.setData(PlayerDataHandler.ineAlpha.get(), 10);
+                }
                 return InteractionResult.PASS;
             }
         }
@@ -107,7 +113,7 @@ public class VowsBlock extends Block implements EntityBlock {
 
     @Override
     protected List<ItemStack> getDrops(BlockState state, LootParams.Builder params) {
-        return List.of(this.asItem().getDefaultInstance());
+        return List.of(VowsItems.VowsBlockItem.get().getDefaultInstance());
     }
 
     private static <E extends BlockEntity, A extends BlockEntity> @Nullable BlockEntityTicker<A> createTickerHelper(

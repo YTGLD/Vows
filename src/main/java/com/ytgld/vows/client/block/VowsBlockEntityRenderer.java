@@ -21,12 +21,14 @@ import net.minecraft.client.renderer.item.ItemStackRenderState;
 import net.minecraft.client.renderer.rendertype.RenderType;
 import net.minecraft.client.renderer.state.level.CameraRenderState;
 import net.minecraft.client.renderer.texture.OverlayTexture;
+import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.Identifier;
 import net.minecraft.util.Mth;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.scores.criteria.ObjectiveCriteria;
 import org.joml.Matrix4f;
@@ -45,6 +47,17 @@ public class VowsBlockEntityRenderer implements BlockEntityRenderer<VowsBlockEnt
     @Override
     public VowsBlockRendererState createRenderState() {
         return new VowsBlockRendererState();
+    }
+
+    @Override
+    public boolean shouldRender(VowsBlockEntity blockEntity, Vec3 cameraPosition) {
+        return true;
+    }
+
+    @Override
+    public AABB getRenderBoundingBox(VowsBlockEntity blockEntity) {
+        BlockPos pos = blockEntity.getBlockPos();
+        return new AABB((double)pos.getX(), (double)pos.getY(), (double)pos.getZ(), (double)pos.getX() + (double)1.0F, (double)2048.0F, (double)pos.getZ() + (double)1.0F);
     }
 
     @Override

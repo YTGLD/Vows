@@ -1,6 +1,6 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "vows:item/sacrificial"
+    "model": "vows:item/vows_block"
   }
 }
