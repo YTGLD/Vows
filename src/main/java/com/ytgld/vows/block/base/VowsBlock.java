@@ -73,7 +73,9 @@ public class VowsBlock extends Block implements EntityBlock {
         if (blockEntity instanceof VowsBlockEntity vowsBlockEntity) {
             if (stack.isEmpty()) {
                 if (state.getValue(ISHasVowsItem)) {
-                    if (player.isShiftKeyDown()) {
+                    if (player.isShiftKeyDown()
+                            && vowsBlockEntity.getData(PlayerDataHandler.vVowsSet.get()).size() < 3
+                            && !vowsBlockEntity.getData(PlayerDataHandler.vVowsSet.get()).contains(vowsBlockEntity.getData(PlayerDataHandler.trueVowsBlock.get()))) {
                         if (Handler.addVows(player, vowsBlockEntity.getData(PlayerDataHandler.trueVowsBlock.get()))) {
                             level.playSound(null, pos.getX() + 0.5f, pos.getY() + 0.8F, pos.getZ(), SoundEvents.WARDEN_HEARTBEAT, SoundSource.BLOCKS, 1, 1);
                             vowsBlockEntity.setData(PlayerDataHandler.trueVowsBlock.get(), "");

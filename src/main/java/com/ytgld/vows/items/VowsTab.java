@@ -32,6 +32,8 @@ public class VowsTab {
                             b.accept(VowsItems.Rage_.get());
                             b.accept(VowsItems.SoulLife_.get());
                             b.accept(VowsItems.Judge_.get());
+                            b.accept(VowsItems.BreakShield_.get());
+                            b.accept(VowsItems.BreakHeart_.get());
                         })
                         .build();
             });

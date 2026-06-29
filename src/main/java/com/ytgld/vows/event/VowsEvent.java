@@ -5,6 +5,7 @@ import com.ytgld.vows.items.BaseVows;
 import com.ytgld.vows.items.vows.hunger.ChecksBalances;
 import com.ytgld.vows.items.vows.hunger.HungryWolf;
 import com.ytgld.vows.items.vows.hunger.Sacrificial;
+import com.ytgld.vows.items.vows.shield.BreakShield;
 import com.ytgld.vows.items.vows.shield.Judge;
 import com.ytgld.vows.items.vows.war.*;
 import com.ytgld.vows.tool.Handler;
@@ -23,10 +24,7 @@ import net.neoforged.neoforge.common.util.AttributeTooltipContext;
 import net.neoforged.neoforge.common.util.AttributeUtil;
 import net.neoforged.neoforge.event.AddAttributeTooltipsEvent;
 import net.neoforged.neoforge.event.GatherSkippedAttributeTooltipsEvent;
-import net.neoforged.neoforge.event.entity.living.LivingDamageEvent;
-import net.neoforged.neoforge.event.entity.living.LivingEntityUseItemEvent;
-import net.neoforged.neoforge.event.entity.living.LivingHealEvent;
-import net.neoforged.neoforge.event.entity.living.LivingIncomingDamageEvent;
+import net.neoforged.neoforge.event.entity.living.*;
 import net.neoforged.neoforge.event.entity.player.ItemTooltipEvent;
 import net.neoforged.neoforge.event.tick.EntityTickEvent;
 
@@ -57,6 +55,10 @@ public class VowsEvent {
         HungryWolf.speed(event);
     }
     @SubscribeEvent
+    public void LivingUseTotemEvent(LivingUseTotemEvent event){
+        BreakShield.hurt(event);
+    }
+    @SubscribeEvent
     public void LivingDamageEventPre(LivingDamageEvent.Pre event) {
         SoulShieldHealHandler.hurt(event);
         BreakingFate.hurt(event);
@@ -64,6 +66,7 @@ public class VowsEvent {
         DeathString.damage(event);
         Rage.damage(event);
         Judge.hurtBreak(event);
+        BreakShield.hurt(event);
     }
     @SubscribeEvent
     public void LivingDamageEventPost(LivingDamageEvent.Post event) {

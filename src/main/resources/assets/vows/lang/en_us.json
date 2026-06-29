@@ -77,6 +77,16 @@
   "vows.vows.judge.1": "获得极高的击退抗性",
   "vows.vows.judge.2": "身着盔甲更容易损毁",
 
+  "vows.vows.break_shield": "黑暗的装甲诅咒",
+  "item.vows.break_shield": "破御祭祀",
+  "vows.vows.break_shield.1": "对伤害的抗性提高五分之一",
+  "vows.vows.break_shield.2": "不死图腾对你无效",
+
+  "vows.vows.break_heart": "无情之道",
+  "item.vows.break_heart": "碎心者之誓言",
+  "vows.vows.break_heart.1": "护甲和护甲韧性提高十分之九",
+  "vows.vows.break_heart.2": "最大生命减少十分之三",
+
 
   "item.vows.checks_balances": "枯萎制衡",
   "vows.vows.checks_balances": "不灭的佳话，不朽的誓言",
