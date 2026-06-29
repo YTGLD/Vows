@@ -3,6 +3,8 @@ package com.ytgld.vows.items;
 import com.ytgld.vows.Vows;
 import com.ytgld.vows.block.VowsBlocks;
 import com.ytgld.vows.items.vows.hunger.*;
+import com.ytgld.vows.items.vows.shield.Judge;
+import com.ytgld.vows.items.vows.shield.SoulLife;
 import com.ytgld.vows.items.vows.war.*;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
@@ -52,6 +54,14 @@ public class VowsItems {
     public static final DeferredHolder<Item ,Item > DeathString_ =
             REGISTRY.register("death_string",(Identifier)->new DeathString(new Item.Properties().setId(ResourceKey.create(Registries.ITEM,Identifier))));
 
+    public static final DeferredHolder<Item ,Item > Rage_ =
+            REGISTRY.register("rage",(Identifier)->new Rage(new Item.Properties().setId(ResourceKey.create(Registries.ITEM,Identifier))));
+
+    public static final DeferredHolder<Item ,Item > SoulLife_ =
+            REGISTRY.register("soul_life",(Identifier)->new SoulLife(new Item.Properties().setId(ResourceKey.create(Registries.ITEM,Identifier))));
+
+    public static final DeferredHolder<Item ,Item > Judge_ =
+            REGISTRY.register("judge",(Identifier)->new Judge(new Item.Properties().setId(ResourceKey.create(Registries.ITEM,Identifier))));
 
 
 

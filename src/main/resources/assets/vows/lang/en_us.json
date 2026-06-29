@@ -59,6 +59,24 @@
   "vows.vows.death_string.1": "造成的伤害会随着挥砍逐渐提高",
   "vows.vows.death_string.2": "对目标的第一击伤害降低十分之九",
 
+  "vows.vows.rage": "破裂长空的嘶吼",
+  "item.vows.rage": "愤怒的战吼",
+  "vows.vows.rage.1": "接近满血时造成的任意伤害提高十分之三",
+  "vows.vows.rage.2": "伤害敏感度随生命值变化",
+
+
+  "vows.vows.soul_life": "踏入轮回通天路",
+  "item.vows.soul_life": "绝命魂师",
+  "vows.vows.soul_life.1": "获得大量灵魂护盾",
+  "vows.vows.soul_life.2": "灵魂护盾会在接近破碎时获得加强",
+  "vows.vows.soul_life.3": "生命值减少约五分之一",
+
+
+  "vows.vows.judge": "你，无罪",
+  "item.vows.judge": "判官",
+  "vows.vows.judge.1": "获得极高的击退抗性",
+  "vows.vows.judge.2": "身着盔甲更容易损毁",
+
 
   "item.vows.checks_balances": "枯萎制衡",
   "vows.vows.checks_balances": "不灭的佳话，不朽的誓言",

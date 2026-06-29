@@ -93,7 +93,7 @@ public class VowsBlock extends Block implements EntityBlock {
                 Item item = stack.getItem();
                 Identifier identifier = BuiltInRegistries.ITEM.getKey(item);
                 Set<String> strings = vowsBlockEntity.getData(PlayerDataHandler.vVowsSet);
-                if (strings.size() < 6 && !strings.contains(identifier.toString())) {
+                if (strings.size() < 10 && !strings.contains(identifier.toString())) {
                     strings.add(identifier.toString());
                     stack.shrink(1);
                 }

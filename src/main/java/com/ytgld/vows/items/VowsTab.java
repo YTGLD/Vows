@@ -29,6 +29,9 @@ public class VowsTab {
                             b.accept(VowsItems.BreakSword_.get());
                             b.accept(VowsItems.WarFortress_.get());
                             b.accept(VowsItems.DeathString_.get());
+                            b.accept(VowsItems.Rage_.get());
+                            b.accept(VowsItems.SoulLife_.get());
+                            b.accept(VowsItems.Judge_.get());
                         })
                         .build();
             });

@@ -14,6 +14,9 @@ import net.minecraft.world.entity.player.Player;
 public class RenderSoulShield {
     public static void renderArmorLevel(GuiGraphicsExtractor graphics, Player player, int leftHeight) {
         if (player != null) {
+            if (showAlpha <= 0) {
+                return;
+            }
             int l = graphics.guiWidth() / 2 - 91;
             Profiler.get().push("soul_shield");
             renderSoulShield(graphics, player, graphics.guiHeight() - leftHeight + 20, l);

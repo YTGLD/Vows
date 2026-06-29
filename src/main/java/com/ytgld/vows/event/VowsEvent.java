@@ -5,10 +5,8 @@ import com.ytgld.vows.items.BaseVows;
 import com.ytgld.vows.items.vows.hunger.ChecksBalances;
 import com.ytgld.vows.items.vows.hunger.HungryWolf;
 import com.ytgld.vows.items.vows.hunger.Sacrificial;
-import com.ytgld.vows.items.vows.war.BreakSword;
-import com.ytgld.vows.items.vows.war.BreakingFate;
-import com.ytgld.vows.items.vows.war.DeathString;
-import com.ytgld.vows.items.vows.war.WarFortress;
+import com.ytgld.vows.items.vows.shield.Judge;
+import com.ytgld.vows.items.vows.war.*;
 import com.ytgld.vows.tool.Handler;
 import com.ytgld.vows.tool.PlayerDataHandler;
 import net.minecraft.ChatFormatting;
@@ -64,6 +62,8 @@ public class VowsEvent {
         BreakingFate.hurt(event);
         WarFortress.damage(event);
         DeathString.damage(event);
+        Rage.damage(event);
+        Judge.hurtBreak(event);
     }
     @SubscribeEvent
     public void LivingDamageEventPost(LivingDamageEvent.Post event) {
