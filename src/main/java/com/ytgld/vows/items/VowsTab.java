@@ -34,6 +34,7 @@ public class VowsTab {
                             b.accept(VowsItems.Judge_.get());
                             b.accept(VowsItems.BreakShield_.get());
                             b.accept(VowsItems.BreakHeart_.get());
+                            b.accept(VowsItems.BoneEmperor_.get());
                         })
                         .build();
             });

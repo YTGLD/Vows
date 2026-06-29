@@ -3,10 +3,7 @@ package com.ytgld.vows.items;
 import com.ytgld.vows.Vows;
 import com.ytgld.vows.block.VowsBlocks;
 import com.ytgld.vows.items.vows.hunger.*;
-import com.ytgld.vows.items.vows.shield.BreakHeart;
-import com.ytgld.vows.items.vows.shield.BreakShield;
-import com.ytgld.vows.items.vows.shield.Judge;
-import com.ytgld.vows.items.vows.shield.SoulLife;
+import com.ytgld.vows.items.vows.shield.*;
 import com.ytgld.vows.items.vows.war.*;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
@@ -68,9 +65,11 @@ public class VowsItems {
     public static final DeferredHolder<Item ,Item > BreakShield_ =
             REGISTRY.register("break_shield",(Identifier)->new BreakShield(new Item.Properties().setId(ResourceKey.create(Registries.ITEM,Identifier))));
 
-
     public static final DeferredHolder<Item ,Item > BreakHeart_ =
             REGISTRY.register("break_heart",(Identifier)->new BreakHeart(new Item.Properties().setId(ResourceKey.create(Registries.ITEM,Identifier))));
+
+    public static final DeferredHolder<Item ,Item > BoneEmperor_ =
+            REGISTRY.register("bone_emperor",(Identifier)->new BoneEmperor(new Item.Properties().setId(ResourceKey.create(Registries.ITEM,Identifier))));
 
 
 

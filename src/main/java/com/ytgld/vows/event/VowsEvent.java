@@ -5,6 +5,7 @@ import com.ytgld.vows.items.BaseVows;
 import com.ytgld.vows.items.vows.hunger.ChecksBalances;
 import com.ytgld.vows.items.vows.hunger.HungryWolf;
 import com.ytgld.vows.items.vows.hunger.Sacrificial;
+import com.ytgld.vows.items.vows.shield.BoneEmperor;
 import com.ytgld.vows.items.vows.shield.BreakShield;
 import com.ytgld.vows.items.vows.shield.Judge;
 import com.ytgld.vows.items.vows.war.*;
@@ -36,7 +37,7 @@ public class VowsEvent {
     @SubscribeEvent
     public void Tick(EntityTickEvent.Pre event){
         SoulShieldHealHandler.tick(event);
-        if (event.getEntity() instanceof LivingEntity livingEntity) {
+        if (event.getEntity() instanceof Player livingEntity) {
             Set<String> set = livingEntity.getData(PlayerDataHandler.vVowsSet);
             for (String name : set){
                 Item item = Handler.getVowsItemForName(name);
@@ -60,6 +61,8 @@ public class VowsEvent {
     }
     @SubscribeEvent
     public void LivingDamageEventPre(LivingDamageEvent.Pre event) {
+        BoneEmperor.hurt(event);
+
         SoulShieldHealHandler.hurt(event);
         BreakingFate.hurt(event);
         WarFortress.damage(event);
