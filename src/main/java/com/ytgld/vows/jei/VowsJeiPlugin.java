@@ -37,7 +37,8 @@ public class VowsJeiPlugin implements IModPlugin {
                                     Component.translatable("item.vows." + config.output()),
                                     config.itemList(),
                                     new ItemStack(Handler.getVowsItemForName(config.output())),
-                                    Component.translatable("jei.vows")
+                                    Component.translatable("jei.vows"),
+                                    config.doOffItem()
                             )
                     )
             );

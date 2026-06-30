@@ -75,6 +75,9 @@ public class Handler {
         Set<String> strings = player.getData(PlayerDataHandler.vVowsSet);
         return strings.add(itemName);
     }
+    public static int getMaxVows(Player player){
+        return (int) player.getAttributeValue(VowsAttributes.maxVows);
+    }
     public static Item getVowsItemForName(String itemName){
         return BuiltInRegistries.ITEM.getValue(Identifier.parse(itemName));
     }

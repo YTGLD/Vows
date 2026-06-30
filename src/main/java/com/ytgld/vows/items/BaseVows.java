@@ -42,7 +42,7 @@ public abstract class BaseVows extends Item {
             player.sendOverlayMessage(Component.translatable("vows.vows.has").withStyle(Style.EMPTY.withColor(0xffff0000)));
             return super.use(level, player, usedHand);
         }else {
-            if (Handler.getVowsItems(player).size() < 3) {
+            if (Handler.getVowsItems(player).size() < Handler.getMaxVows(player)) {
                 Handler.addVows(player, itemName());
                 stack.shrink(1);
                 return InteractionResult.PASS;

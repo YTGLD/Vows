@@ -14,16 +14,10 @@ import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
-
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
 
 public class VowsBlockEntity extends BlockEntity {
 
@@ -36,12 +30,18 @@ public class VowsBlockEntity extends BlockEntity {
         if (blockEntity.tickTIme % 4 == 1) {
             String name = blockEntity.getData(PlayerDataHandler.trueVowsBlock);
             Item item = BuiltInRegistries.ITEM.getValue(Identifier.parse(name));
-            if (item instanceof BaseVows baseVows) {
-                for (RenderVowsItem.ColorAndImage colorAndImage : baseVows.colorAndImage()) {
-                    if (level instanceof ServerLevel serverLevel) {
-                        serverLevel.sendParticles(ColorOption.createColorOption(Vec3.ZERO, true, colorAndImage.color(), 1), pos.getX() + 0.5f, pos.getY() + 0.8F, pos.getZ() + 0.5f, 1, 0.03F, 0.03F, 0.03F, 0);
+            if (!state.getValue(VowsBlock.doOffVows)) {
+                if (item instanceof BaseVows baseVows) {
+                    for (RenderVowsItem.ColorAndImage colorAndImage : baseVows.colorAndImage()) {
+                        if (level instanceof ServerLevel serverLevel) {
+                            serverLevel.sendParticles(ColorOption.createColorOption(Vec3.ZERO, true, colorAndImage.color(), 1), pos.getX() + 0.5f, pos.getY() + 0.8F, pos.getZ() + 0.5f, 1, 0.03F, 0.03F, 0.03F, 0);
+                        }
+                        break;
                     }
-                    break;
+                }
+            }else {
+                if (level instanceof ServerLevel serverLevel) {
+                    serverLevel.sendParticles(ColorOption.createColorOption(Vec3.ZERO, true, 0xffffffff, 1), pos.getX() + 0.5f, pos.getY() + 1f, pos.getZ() + 0.5f, 1, 0.03F, 0.03F, 0.03F, 0);
                 }
             }
         }

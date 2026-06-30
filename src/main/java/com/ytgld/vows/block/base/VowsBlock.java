@@ -45,6 +45,7 @@ import java.util.Set;
 public class VowsBlock extends Block implements EntityBlock {
 
     public static final BooleanProperty ISHasVowsItem = BooleanProperty.create("has");
+    public static final BooleanProperty doOffVows = BooleanProperty.create("off");
 
 
     public VowsBlock(Properties properties) {
@@ -53,11 +54,12 @@ public class VowsBlock extends Block implements EntityBlock {
                 .lightLevel((state)->state.getValue(ISHasVowsItem) ? 12 : 0)
                 .sound(SoundType.NETHER_BRICKS)
         );
-        this.registerDefaultState(this.stateDefinition.any().setValue(ISHasVowsItem, false));
+        this.registerDefaultState(this.stateDefinition.any().setValue(ISHasVowsItem, false)
+                .setValue(doOffVows, false));
     }
 
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
-        builder.add(ISHasVowsItem);
+        builder.add(ISHasVowsItem,doOffVows);
     }
     @Override
     protected VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
@@ -82,25 +84,60 @@ public class VowsBlock extends Block implements EntityBlock {
                 }
 
                 for (RegisterRecipeConfig config : RecipePluginFinder.getModPlugins()) {
+                    boolean off = false;
                     if (config.canRecipe(items)) {
-                        level.setBlock(pos, state.setValue(VowsBlock.ISHasVowsItem, true), 3);
-                        vowsBlockEntity.setData(PlayerDataHandler.trueVowsBlock, config.output());
-                        vowsBlockEntity.other(level, pos, vowsBlockEntity);
-                        vowsBlockEntity.setData(PlayerDataHandler.theIntAndStringSyncHandler,new IntAndStringSyncHandler.ISClass(new HashMap<>()));
+                        for (ItemStack i1 : items) {
+                            if (i1.is(config.doOffItem().getItem())
+                                    && i1.count() == config.doOffItem().count()) {
+                                level.setBlock(pos, state.setValue(doOffVows, true).setValue(VowsBlock.ISHasVowsItem, true), 3);
+                                vowsBlockEntity.setData(PlayerDataHandler.trueVowsBlock, config.output());
+                                blockEntity.setData(PlayerDataHandler.ineAlpha.get(),15);
+                                vowsBlockEntity.other(level, pos, vowsBlockEntity);
+                                vowsBlockEntity.setData(PlayerDataHandler.theIntAndStringSyncHandler, new IntAndStringSyncHandler.ISClass(new HashMap<>()));
+                                off = true;
+                                break;
+                            }
+                        }
+                    }
+                    if (!off) {
+                        if (config.canRecipe(items)) {
+                            level.setBlock(pos, state.setValue(VowsBlock.ISHasVowsItem, true), 3);
+                            vowsBlockEntity.setData(PlayerDataHandler.trueVowsBlock, config.output());
+                            vowsBlockEntity.other(level, pos, vowsBlockEntity);
+                            vowsBlockEntity.setData(PlayerDataHandler.theIntAndStringSyncHandler, new IntAndStringSyncHandler.ISClass(new HashMap<>()));
+                            break;
+                        }
                     }
                 }
                 if (state.getValue(ISHasVowsItem)) {
                     if (player.isShiftKeyDown()) {
-                        if (Handler.addVows(player, vowsBlockEntity.getData(PlayerDataHandler.trueVowsBlock.get()))) {
-                            level.playSound(null, pos.getX() + 0.5f, pos.getY() + 0.8F, pos.getZ(), SoundEvents.WARDEN_HEARTBEAT, SoundSource.BLOCKS, 1, 1);
-                            vowsBlockEntity.setData(PlayerDataHandler.trueVowsBlock.get(), "");
-                            return InteractionResult.PASS;
-                        }else {
-                            if (player.getData(PlayerDataHandler.vVowsSet).contains(vowsBlockEntity.getData(PlayerDataHandler.trueVowsBlock.get()))) {
-                                player.sendOverlayMessage(Component.translatable("vows.vows.has").withStyle(Style.EMPTY.withColor(0xffff0000)));
+                        if (state.getValue(doOffVows)) {
+                            if (player.getData(PlayerDataHandler.vVowsSet).remove(vowsBlockEntity.getData(PlayerDataHandler.trueVowsBlock.get()))) {
+                                level.playSound(null, pos.getX() + 0.5f, pos.getY() + 0.8F, pos.getZ(), SoundEvents.IRON_GOLEM_REPAIR, SoundSource.BLOCKS, 1, 1);
+                                vowsBlockEntity.setData(PlayerDataHandler.trueVowsBlock.get(), "");
+                                level.setBlock(pos, state.setValue(ISHasVowsItem, false).setValue(doOffVows, false),3);
+                                player.sendOverlayMessage(Component.translatable("vows.vows.off").withStyle(Style.EMPTY.withColor(0xffff0000)));
+                                return InteractionResult.PASS;
                             }else {
-                                player.sendOverlayMessage(Component.translatable("vows.vows.max").withStyle(Style.EMPTY.withColor(0xffff0000)));
+                                player.sendOverlayMessage(Component.translatable("vows.vows.cannot.off").withStyle(Style.EMPTY.withColor(0xffff0000)));
+                                return InteractionResult.FAIL;
                             }
+                        }
+                        if (Handler.getVowsItems(player).size() < Handler.getMaxVows(player)) {
+                            if (Handler.addVows(player, vowsBlockEntity.getData(PlayerDataHandler.trueVowsBlock.get()))) {
+                                level.playSound(null, pos.getX() + 0.5f, pos.getY() + 0.8F, pos.getZ(), SoundEvents.WARDEN_HEARTBEAT, SoundSource.BLOCKS, 1, 1);
+                                vowsBlockEntity.setData(PlayerDataHandler.trueVowsBlock.get(), "");
+                                return InteractionResult.PASS;
+                            } else {
+                                if (player.getData(PlayerDataHandler.vVowsSet).contains(vowsBlockEntity.getData(PlayerDataHandler.trueVowsBlock.get()))) {
+                                    player.sendOverlayMessage(Component.translatable("vows.vows.has").withStyle(Style.EMPTY.withColor(0xffff0000)));
+                                } else {
+                                    player.sendOverlayMessage(Component.translatable("vows.vows.max").withStyle(Style.EMPTY.withColor(0xffff0000)));
+                                }
+                                return InteractionResult.FAIL;
+                            }
+                        }else {
+                            player.sendOverlayMessage(Component.translatable("vows.vows.max").withStyle(Style.EMPTY.withColor(0xffff0000)));
                             return InteractionResult.FAIL;
                         }
                     }

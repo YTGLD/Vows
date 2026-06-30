@@ -11,9 +11,14 @@ import mezz.jei.api.recipe.category.IRecipeCategory;
 import mezz.jei.api.recipe.types.IRecipeType;
 import mezz.jei.common.Internal;
 import mezz.jei.common.gui.textures.Textures;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.network.chat.Component;
+import net.minecraft.util.datafix.fixes.ItemStackTagFix;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.item.MinecartItem;
 import org.jspecify.annotations.Nullable;
 
 import java.util.List;
@@ -62,6 +67,10 @@ public class VowsRecipeCategory  implements IRecipeCategory<VowsRecipeCategory.G
             offset += 16;
             theSlot.draw(guiGraphics,offset - 16,20);
         }
+        if (!recipe.offItem.isEmpty()){
+            theSlot.draw(guiGraphics,0,60);
+            guiGraphics.text(Minecraft.getInstance().font,Component.translatable("jei.vows.off"),0,80,0xff000000);
+        }
         theSlot.draw(guiGraphics,80, 40);
     }
 
@@ -83,6 +92,9 @@ public class VowsRecipeCategory  implements IRecipeCategory<VowsRecipeCategory.G
             builder.addSlot(RecipeIngredientRole.INPUT, offset - 16, 20)
                     .add(itemStack);
         }
+        builder.addSlot(RecipeIngredientRole.CRAFTING_STATION, 0, 60)
+                .add(page.offItem);
+
         builder.addSlot(RecipeIngredientRole.OUTPUT, 80, 40)
                 .add(page.outputs());
     }
@@ -91,7 +103,8 @@ public class VowsRecipeCategory  implements IRecipeCategory<VowsRecipeCategory.G
             Component title,
             List<ItemStack> inputs,
             ItemStack outputs,
-            Component description
+            Component description,
+            ItemStack offItem
     ) {}
     public static class ItemIDrawable implements IDrawable {
 

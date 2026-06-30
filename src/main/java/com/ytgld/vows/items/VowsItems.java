@@ -3,6 +3,7 @@ package com.ytgld.vows.items;
 import com.ytgld.vows.Vows;
 import com.ytgld.vows.block.VowsBlocks;
 import com.ytgld.vows.items.vows.hunger.*;
+import com.ytgld.vows.items.vows.life.Hyperplasia;
 import com.ytgld.vows.items.vows.magic.CtrlMagic;
 import com.ytgld.vows.items.vows.magic.PainSoul;
 import com.ytgld.vows.items.vows.magic.SoulDrive;
@@ -86,6 +87,9 @@ public class VowsItems {
 
     public static final DeferredHolder<Item ,Item > StrongerShield_ =
             REGISTRY.register("stronger_shield",(Identifier)->new StrongerShield(new Item.Properties().setId(ResourceKey.create(Registries.ITEM,Identifier))));
+
+    public static final DeferredHolder<Item ,Item > Hyperplasia_ =
+            REGISTRY.register("hyperplasia",(Identifier)->new Hyperplasia(new Item.Properties().setId(ResourceKey.create(Registries.ITEM,Identifier))));
 
 
 

@@ -36,6 +36,12 @@ public class VowsAttributes {
                     .serialize(Codec.INT.fieldOf("soul_shield_cooldown"))
                     .build()
     );
+    public static final DeferredHolder<Attribute,Attribute> maxVows= ATTRIBUTES.register(
+            "max_vows",()->new RangedAttribute(
+                    "vows.attribute.max_vows", 3, 0, 100).setSyncable(true));
+
+
+
     public static final DeferredHolder<Attribute,Attribute> soulShieldMaxValue = ATTRIBUTES.register(
             "soul_shield",()->new RangedAttribute(
                     "vows.attribute.soul_shield", 0, 0, 100).setSyncable(true));
@@ -61,5 +67,6 @@ public class VowsAttributes {
         event.add(EntityTypes.PLAYER ,soulShieldHealSpeed);
         event.add(EntityTypes.PLAYER ,soulShieldHealCooldown);
         event.add(EntityTypes.PLAYER ,soulShieldStronger);
+        event.add(EntityTypes.PLAYER ,maxVows);
     }
 }

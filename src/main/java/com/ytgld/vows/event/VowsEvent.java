@@ -5,6 +5,7 @@ import com.ytgld.vows.items.BaseVows;
 import com.ytgld.vows.items.vows.hunger.ChecksBalances;
 import com.ytgld.vows.items.vows.hunger.HungryWolf;
 import com.ytgld.vows.items.vows.hunger.Sacrificial;
+import com.ytgld.vows.items.vows.life.Hyperplasia;
 import com.ytgld.vows.items.vows.magic.CtrlMagic;
 import com.ytgld.vows.items.vows.magic.SoulDrive;
 import com.ytgld.vows.items.vows.shield.BoneEmperor;
@@ -87,6 +88,7 @@ public class VowsEvent {
     @SubscribeEvent
     public void LivingDamageEventPost(LivingHealEvent event) {
         BreakSword.doHeal(event);
+        Hyperplasia.heal120(event);
     }
     @SubscribeEvent
     public void LivingDamageEventPre(LivingIncomingDamageEvent event) {

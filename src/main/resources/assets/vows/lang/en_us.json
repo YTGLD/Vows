@@ -9,6 +9,9 @@
   "vows.attribute.soul_shield_stronger": "灵魂护盾强度",
   "item.vows.vows_block": "灵魂火盆",
   "jei.vows": "将左侧物品放入灵魂火盆中，完成后下蹲加空手右键",
+  "jei.vows.off": "作为辅料解除誓约",
+  "vows.vows.off": "你已解除相关誓约",
+  "vows.vows.cannot.off": "相关誓约并不存在",
 
 
   "death.attack.player_magic": "%1$s死于%2$s的魔法",
@@ -144,5 +147,22 @@
   "item.vows.ctrl_magic": "魔法掌控",
   "vows.vows.ctrl_magic.1": "造成的魔法类型伤害提高五分之一",
   "vows.vows.ctrl_magic.2": "将造成物理伤害的一半转换成魔法类型",
-  "vows.vows.ctrl_magic.3": "对穿透伤害的敏感度显著提高"
+  "vows.vows.ctrl_magic.3": "对穿透伤害的敏感度显著提高",
+
+
+
+
+
+
+
+
+
+
+
+
+  "vows.vows.hyperplasia": "物质的进一步衰败",
+  "item.vows.hyperplasia": "无止增生之约",
+  "vows.vows.hyperplasia.1": "最大生命提高五分之二",
+  "vows.vows.hyperplasia.2": "所有治疗提高五分之一",
+  "vows.vows.hyperplasia.3": "增生瘤体使你的速度降低十分之三"
 }

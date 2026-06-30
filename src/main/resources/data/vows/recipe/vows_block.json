@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "A": "minecraft:blackstone",
+    "B": "minecraft:ghast_tear",
+    "C": "minecraft:crying_obsidian"
+  },
+  "pattern": [
+    " B ",
+    " A ",
+    "ACA"
+  ],
+  "result": {
+    "id": "vows:vows_block"
+  }
+}
