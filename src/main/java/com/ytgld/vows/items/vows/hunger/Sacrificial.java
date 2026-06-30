@@ -4,10 +4,7 @@ import com.google.common.collect.Multimap;
 import com.ytgld.vows.Vows;
 import com.ytgld.vows.client.RenderVowsItem;
 import com.ytgld.vows.items.BaseVows;
-import com.ytgld.vows.tool.Handler;
-import com.ytgld.vows.tool.Light;
-import com.ytgld.vows.tool.RecipePlugin;
-import com.ytgld.vows.tool.RegisterRecipeConfig;
+import com.ytgld.vows.tool.*;
 import net.minecraft.core.Holder;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.network.chat.Component;
@@ -95,18 +92,15 @@ public class Sacrificial extends BaseVows {
         @Override
         public List<ItemStack> itemList() {
             return List.of(
-                    Items.POISONOUS_POTATO.getDefaultInstance(),
-                    Items.ROTTEN_FLESH.getDefaultInstance(),
+                    new ItemStack(Items.POISONOUS_POTATO,4),
+                    new ItemStack(Items.ROTTEN_FLESH,32),
                     Items.DIAMOND_HOE.getDefaultInstance()
             );
         }
         @Override
-        public boolean canRecipe(Set<Item> items) {
-            return items.contains(this.itemList().get(0).getItem())
-                    && items.contains(this.itemList().get(1).getItem())
-                    && items.contains(this.itemList().get(2).getItem());
+        public boolean canRecipe(Set<ItemStack> items) {
+            return RecipeHandler.canUse(itemList(),items);
         }
-
         @Override
         public String output() {
             return Handler.mixinName("sacrificial");

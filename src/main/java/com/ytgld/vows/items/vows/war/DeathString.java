@@ -3,10 +3,7 @@ package com.ytgld.vows.items.vows.war;
 import com.ytgld.vows.Vows;
 import com.ytgld.vows.client.RenderVowsItem;
 import com.ytgld.vows.items.BaseVows;
-import com.ytgld.vows.tool.Handler;
-import com.ytgld.vows.tool.Light;
-import com.ytgld.vows.tool.RecipePlugin;
-import com.ytgld.vows.tool.RegisterRecipeConfig;
+import com.ytgld.vows.tool.*;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -93,19 +90,15 @@ public class DeathString extends BaseVows {
         @Override
         public List<ItemStack> itemList() {
             return List.of(
-                    Items.BLAZE_POWDER.getDefaultInstance(),
-                    Items.BLAZE_ROD.getDefaultInstance(),
+                    new ItemStack(Items.BLAZE_POWDER,12),
+                    new ItemStack(Items.BLAZE_ROD,4),
                     Items.DIAMOND.getDefaultInstance(),
-                    Items.IRON_INGOT.getDefaultInstance()
+                    new ItemStack(Items.IRON_INGOT,8)
             );
         }
         @Override
-        public boolean canRecipe(Set<Item> items) {
-            return items.contains(this.itemList().get(0).getItem())
-                    && items.contains(this.itemList().get(1).getItem())
-                    && items.contains(this.itemList().get(2).getItem())
-                    && items.contains(this.itemList().get(3).getItem()
-            );
+        public boolean canRecipe(Set<ItemStack> items) {
+            return RecipeHandler.canUse(itemList(),items);
         }
 
         @Override

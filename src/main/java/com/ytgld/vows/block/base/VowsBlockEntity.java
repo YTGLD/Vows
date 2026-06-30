@@ -4,10 +4,7 @@ import com.ytgld.vows.block.VowsBlockEntitys;
 import com.ytgld.vows.client.RenderVowsItem;
 import com.ytgld.vows.client.partclie.ColorOption;
 import com.ytgld.vows.items.BaseVows;
-import com.ytgld.vows.tool.Handler;
-import com.ytgld.vows.tool.PlayerDataHandler;
-import com.ytgld.vows.tool.RecipePluginFinder;
-import com.ytgld.vows.tool.RegisterRecipeConfig;
+import com.ytgld.vows.tool.*;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.Identifier;
@@ -74,11 +71,12 @@ public class VowsBlockEntity extends BlockEntity {
     @Override
     public void preRemoveSideEffects(BlockPos pos, BlockState state) {
         super.preRemoveSideEffects(pos, state);
-        Set<String> strings = this.getData(PlayerDataHandler.vVowsSet);
-        for (String string : strings) {
+        IntAndStringSyncHandler.ISClass strings = this .getData(PlayerDataHandler.theIntAndStringSyncHandler);
+        for (String string : strings.map().keySet()) {
             Item item = BuiltInRegistries.ITEM.getValue(Identifier.parse(string));
+            ItemStack stack = new ItemStack(item,strings.map().get(string));
             if (this.level != null) {
-                this.level.addFreshEntity(new ItemEntity(this.level,pos.getX()  + 0.5f,pos.getY()  + 0.5f,pos.getZ()  + 0.5f,new ItemStack(item)));
+                this.level.addFreshEntity(new ItemEntity(this.level,pos.getX()  + 0.5f,pos.getY()  + 0.5f,pos.getZ()  + 0.5f,stack));
             }
         }
     }

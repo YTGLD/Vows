@@ -3,10 +3,7 @@ package com.ytgld.vows.items.vows.hunger;
 import com.ytgld.vows.Vows;
 import com.ytgld.vows.client.RenderVowsItem;
 import com.ytgld.vows.items.BaseVows;
-import com.ytgld.vows.tool.Handler;
-import com.ytgld.vows.tool.Light;
-import com.ytgld.vows.tool.RecipePlugin;
-import com.ytgld.vows.tool.RegisterRecipeConfig;
+import com.ytgld.vows.tool.*;
 import net.minecraft.core.Holder;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.network.chat.Component;
@@ -105,18 +102,15 @@ public class HungryWolf extends BaseVows {
         @Override
         public List<ItemStack> itemList() {
             return List.of(
-                    Items.GOLDEN_APPLE.getDefaultInstance(),
-                    Items.ROTTEN_FLESH.getDefaultInstance(),
-                    Items.DIAMOND.getDefaultInstance(),
-                    Items.COOKED_BEEF.getDefaultInstance()
+                    new ItemStack(Items.GOLDEN_APPLE,2),
+                    new ItemStack(Items.ROTTEN_FLESH,16),
+                    new ItemStack(Items.DIAMOND,4),
+                    new ItemStack(Items.COOKED_BEEF,4)
             );
         }
         @Override
-        public boolean canRecipe(Set<Item> items) {
-            return items.contains(this.itemList().get(0).getItem())
-                    && items.contains(this.itemList().get(1).getItem())
-                    && items.contains(this.itemList().get(2).getItem())
-                    && items.contains(this.itemList().get(3).getItem());
+        public boolean canRecipe(Set<ItemStack> items) {
+            return RecipeHandler.canUse(itemList(),items);
         }
 
         @Override

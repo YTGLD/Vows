@@ -3,10 +3,7 @@ package com.ytgld.vows.items.vows.war;
 import com.ytgld.vows.Vows;
 import com.ytgld.vows.client.RenderVowsItem;
 import com.ytgld.vows.items.BaseVows;
-import com.ytgld.vows.tool.Handler;
-import com.ytgld.vows.tool.Light;
-import com.ytgld.vows.tool.RecipePlugin;
-import com.ytgld.vows.tool.RegisterRecipeConfig;
+import com.ytgld.vows.tool.*;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
@@ -67,16 +64,14 @@ public class WarFortress extends BaseVows {
         @Override
         public List<ItemStack> itemList() {
             return List.of(
-                    Items.BLAZE_ROD.getDefaultInstance(),
+                    new ItemStack(Items.BLAZE_ROD,3),
                     Items.FERMENTED_SPIDER_EYE.getDefaultInstance(),
-                    Items.COPPER_INGOT.getDefaultInstance()
+                    new ItemStack(Items.COPPER_INGOT,12)
             );
         }
         @Override
-        public boolean canRecipe(Set<Item> items) {
-            return items.contains(this.itemList().get(0).getItem())
-                    && items.contains(this.itemList().get(1).getItem())
-                    && items.contains(this.itemList().get(2).getItem());
+        public boolean canRecipe(Set<ItemStack> items) {
+            return RecipeHandler.canUse(itemList(),items);
         }
 
         @Override

@@ -9,6 +9,6 @@ import java.util.Set;
 
 public interface RegisterRecipeConfig {
     List<ItemStack> itemList();
-    boolean canRecipe(Set<Item> items);
+    boolean canRecipe(Set<ItemStack> items);
     String output();
 }

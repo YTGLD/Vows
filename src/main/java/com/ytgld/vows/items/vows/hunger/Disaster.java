@@ -4,10 +4,7 @@ import com.google.common.collect.Multimap;
 import com.ytgld.vows.Vows;
 import com.ytgld.vows.client.RenderVowsItem;
 import com.ytgld.vows.items.BaseVows;
-import com.ytgld.vows.tool.Handler;
-import com.ytgld.vows.tool.Light;
-import com.ytgld.vows.tool.RecipePlugin;
-import com.ytgld.vows.tool.RegisterRecipeConfig;
+import com.ytgld.vows.tool.*;
 import net.minecraft.core.Holder;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.LivingEntity;
@@ -106,17 +103,14 @@ public class Disaster extends BaseVows {
         @Override
         public List<ItemStack> itemList() {
             return List.of(
-                    Items.SUGAR.getDefaultInstance(),
-                    Items.SPIDER_EYE.getDefaultInstance()
+                    new ItemStack(Items.SUGAR,24),
+                    new ItemStack(Items.SPIDER_EYE,8)
             );
         }
         @Override
-        public boolean canRecipe(Set<Item> items) {
-            return items.contains(this.itemList().get(0).getItem())
-                    && items.contains(this.itemList().get(1).getItem())
-                    ;
+        public boolean canRecipe(Set<ItemStack> items) {
+            return RecipeHandler.canUse(itemList(),items);
         }
-
         @Override
         public String output() {
             return Handler.mixinName("disaster");

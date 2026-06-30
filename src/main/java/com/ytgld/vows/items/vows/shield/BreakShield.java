@@ -3,10 +3,7 @@ package com.ytgld.vows.items.vows.shield;
 import com.ytgld.vows.Vows;
 import com.ytgld.vows.client.RenderVowsItem;
 import com.ytgld.vows.items.BaseVows;
-import com.ytgld.vows.tool.Handler;
-import com.ytgld.vows.tool.Light;
-import com.ytgld.vows.tool.RecipePlugin;
-import com.ytgld.vows.tool.RegisterRecipeConfig;
+import com.ytgld.vows.tool.*;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
@@ -72,15 +69,13 @@ public class BreakShield extends BaseVows {
         public List<ItemStack> itemList() {
             return List.of(
                     Items.TOTEM_OF_UNDYING.getDefaultInstance(),
-                    Items.GOLD_INGOT.getDefaultInstance(),
+                    new ItemStack(Items.GOLD_INGOT,4),
                     Items.GHAST_TEAR.getDefaultInstance()
             );
         }
         @Override
-        public boolean canRecipe(Set<Item> items) {
-            return items.contains(this.itemList().get(0).getItem())
-                    && items.contains(this.itemList().get(1).getItem())
-                    && items.contains(this.itemList().get(2).getItem());
+        public boolean canRecipe(Set<ItemStack> items) {
+            return RecipeHandler.canUse(itemList(),items);
         }
 
         @Override
