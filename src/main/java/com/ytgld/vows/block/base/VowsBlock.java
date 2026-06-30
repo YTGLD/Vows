@@ -5,6 +5,8 @@ import com.ytgld.vows.items.BaseVows;
 import com.ytgld.vows.items.VowsItems;
 import com.ytgld.vows.tool.Handler;
 import com.ytgld.vows.tool.PlayerDataHandler;
+import com.ytgld.vows.tool.RecipePluginFinder;
+import com.ytgld.vows.tool.RegisterRecipeConfig;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
@@ -37,6 +39,7 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.Nullable;
 
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -72,6 +75,20 @@ public class VowsBlock extends Block implements EntityBlock {
         BlockEntity blockEntity = level.getBlockEntity(pos);
         if (blockEntity instanceof VowsBlockEntity vowsBlockEntity) {
             if (stack.isEmpty()) {
+                Set<String> strings = blockEntity.getData(PlayerDataHandler.vVowsSet);
+                Set<Item> items = new HashSet<>();
+                for (String string : strings) {
+                    Item item = BuiltInRegistries.ITEM.getValue(Identifier.parse(string));
+                    items.add(item);
+                }
+                for (RegisterRecipeConfig config : RecipePluginFinder.getModPlugins()) {
+                    if (config.canRecipe(items)) {
+                        level.setBlock(pos, state.setValue(VowsBlock.ISHasVowsItem, true), 3);
+                        vowsBlockEntity.setData(PlayerDataHandler.trueVowsBlock, config.output());
+                        vowsBlockEntity.other(level, pos, vowsBlockEntity);
+                        vowsBlockEntity.setData(PlayerDataHandler.vVowsSet, new HashSet<>());
+                    }
+                }
                 if (state.getValue(ISHasVowsItem)) {
                     if (player.isShiftKeyDown()
                             && vowsBlockEntity.getData(PlayerDataHandler.vVowsSet.get()).size() < 3
@@ -95,7 +112,7 @@ public class VowsBlock extends Block implements EntityBlock {
                 Item item = stack.getItem();
                 Identifier identifier = BuiltInRegistries.ITEM.getKey(item);
                 Set<String> strings = vowsBlockEntity.getData(PlayerDataHandler.vVowsSet);
-                if (strings.size() < 10 && !strings.contains(identifier.toString())) {
+                if (strings.size() < 10 && !strings.contains(identifier.toString()) && vowsBlockEntity.getData(PlayerDataHandler.trueVowsBlock).isEmpty()) {
                     strings.add(identifier.toString());
                     stack.shrink(1);
                 }

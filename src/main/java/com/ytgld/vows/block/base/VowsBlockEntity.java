@@ -30,42 +30,34 @@ import java.util.Set;
 
 public class VowsBlockEntity extends BlockEntity {
 
+    public int tickTIme = 0;
     public VowsBlockEntity(BlockPos pos, BlockState state) {
         super(VowsBlockEntitys.VowsBlockEntity_.get(), pos, state);
     }
     public static void tick(Level level, BlockPos pos, BlockState state, VowsBlockEntity blockEntity) {
-        Set<String> strings = blockEntity.getData(PlayerDataHandler.vVowsSet);
-        Set<Item> items = new HashSet<>();
-        for (String string : strings) {
-            Item item = BuiltInRegistries.ITEM.getValue(Identifier.parse(string));
-            items.add(item);
-        }
-        for (RegisterRecipeConfig config  : RecipePluginFinder.getModPlugins()){
-            if (config.canRecipe(items)){
-                level.setBlock(pos,state.setValue(VowsBlock.ISHasVowsItem,true),3);
-                blockEntity.setData(PlayerDataHandler.trueVowsBlock,config.output());
-                other(level, pos, blockEntity);
-                blockEntity.setData(PlayerDataHandler.vVowsSet,new HashSet<>());
-            }
-        }
-        if (blockEntity.getData(PlayerDataHandler.ineAlpha.get()) > 0) {
-            if (blockEntity.getData(PlayerDataHandler.ineAlpha.get()) < 240) {
-                blockEntity.setData(PlayerDataHandler.ineAlpha.get(),blockEntity.getData(PlayerDataHandler.ineAlpha.get()) + 15);
-            }
-        }
-        String name = blockEntity.getData(PlayerDataHandler.trueVowsBlock);
-        Item item = BuiltInRegistries.ITEM.getValue(Identifier.parse(name));
-        if (item instanceof BaseVows baseVows) {
-            for (RenderVowsItem.ColorAndImage colorAndImage : baseVows.colorAndImage()) {
-                if (level instanceof ServerLevel serverLevel) {
-                    serverLevel.sendParticles(ColorOption.createColorOption(Vec3.ZERO, true,colorAndImage.color(),1), pos.getX() + 0.5f, pos.getY() + 0.8F, pos.getZ() + 0.5f, 1, 0.03F, 0.03F, 0.03F, 0);
+        blockEntity.tickTIme ++;
+        if (blockEntity.tickTIme % 4 == 1) {
+            String name = blockEntity.getData(PlayerDataHandler.trueVowsBlock);
+            Item item = BuiltInRegistries.ITEM.getValue(Identifier.parse(name));
+            if (item instanceof BaseVows baseVows) {
+                for (RenderVowsItem.ColorAndImage colorAndImage : baseVows.colorAndImage()) {
+                    if (level instanceof ServerLevel serverLevel) {
+                        serverLevel.sendParticles(ColorOption.createColorOption(Vec3.ZERO, true, colorAndImage.color(), 1), pos.getX() + 0.5f, pos.getY() + 0.8F, pos.getZ() + 0.5f, 1, 0.03F, 0.03F, 0.03F, 0);
+                    }
+                    break;
                 }
-                break;
+            }
+        }
+        if (blockEntity.tickTIme % 20 == 1) {
+            if (blockEntity.getData(PlayerDataHandler.ineAlpha.get()) > 0) {
+                if (blockEntity.getData(PlayerDataHandler.ineAlpha.get()) < 240) {
+                    blockEntity.setData(PlayerDataHandler.ineAlpha.get(), blockEntity.getData(PlayerDataHandler.ineAlpha.get()) + 15);
+                }
             }
         }
     }
 
-    private static void other(Level level, BlockPos pos, VowsBlockEntity blockEntity){
+    public void other(Level level, BlockPos pos, VowsBlockEntity blockEntity){
         blockEntity.setData(PlayerDataHandler.ineAlpha.get(),15);
         level.playSound(null,pos.getX() + 0.5f, pos.getY() + 0.8F, pos.getZ(), SoundEvents.RESPAWN_ANCHOR_CHARGE, SoundSource.BLOCKS,1,1);
         String name = blockEntity.getData(PlayerDataHandler.trueVowsBlock);

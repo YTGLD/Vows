@@ -1,7 +1,5 @@
 package com.ytgld.vows.items.vows.shield;
 
-import com.google.common.collect.HashMultimap;
-import com.google.common.collect.Multimap;
 import com.ytgld.vows.Vows;
 import com.ytgld.vows.attributre.VowsAttributes;
 import com.ytgld.vows.client.RenderVowsItem;
@@ -10,13 +8,9 @@ import com.ytgld.vows.tool.Handler;
 import com.ytgld.vows.tool.Light;
 import com.ytgld.vows.tool.RecipePlugin;
 import com.ytgld.vows.tool.RegisterRecipeConfig;
-import net.minecraft.core.Holder;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.AttributeInstance;
-import net.minecraft.world.entity.ai.attributes.AttributeModifier;
-import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -51,8 +45,8 @@ public class BoneEmperor extends BaseVows {
                             doDamage = 10;
                         }
                         event.setNewDamage(event.getNewDamage() * (1 / doDamage));
-                        if (event.getNewDamage() < 1) {
-                            event.setNewDamage(1);
+                        if (event.getNewDamage() < 2) {
+                            event.setNewDamage(2);
                         }
                     }
                 }

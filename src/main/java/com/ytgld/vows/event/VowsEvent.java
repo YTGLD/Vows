@@ -5,6 +5,8 @@ import com.ytgld.vows.items.BaseVows;
 import com.ytgld.vows.items.vows.hunger.ChecksBalances;
 import com.ytgld.vows.items.vows.hunger.HungryWolf;
 import com.ytgld.vows.items.vows.hunger.Sacrificial;
+import com.ytgld.vows.items.vows.magic.CtrlMagic;
+import com.ytgld.vows.items.vows.magic.SoulDrive;
 import com.ytgld.vows.items.vows.shield.BoneEmperor;
 import com.ytgld.vows.items.vows.shield.BreakShield;
 import com.ytgld.vows.items.vows.shield.Judge;
@@ -26,6 +28,7 @@ import net.neoforged.neoforge.common.util.AttributeUtil;
 import net.neoforged.neoforge.event.AddAttributeTooltipsEvent;
 import net.neoforged.neoforge.event.GatherSkippedAttributeTooltipsEvent;
 import net.neoforged.neoforge.event.entity.living.*;
+import net.neoforged.neoforge.event.entity.player.AttackEntityEvent;
 import net.neoforged.neoforge.event.entity.player.ItemTooltipEvent;
 import net.neoforged.neoforge.event.tick.EntityTickEvent;
 
@@ -70,10 +73,16 @@ public class VowsEvent {
         Rage.damage(event);
         Judge.hurtBreak(event);
         BreakShield.hurt(event);
+        CtrlMagic.hurt(event);
+        SoulDrive.hurt(event);
     }
     @SubscribeEvent
     public void LivingDamageEventPost(LivingDamageEvent.Post event) {
         BreakSword.healLife(event);
+    }
+    @SubscribeEvent
+    public void AttackEntityEvent(AttackEntityEvent event) {
+        CtrlMagic.hurt(event);
     }
     @SubscribeEvent
     public void LivingDamageEventPost(LivingHealEvent event) {
