@@ -93,8 +93,8 @@ public class BoneEmperor extends BaseVows {
         @Override
         public List<ItemStack> itemList() {
             return List.of(
-                    Items.IRON_INGOT.getDefaultInstance(),
-                    Items.ECHO_SHARD.getDefaultInstance(),
+                    Items.ENCHANTED_GOLDEN_APPLE.getDefaultInstance(),
+                    Items.MUSIC_DISC_13.getDefaultInstance(),
                     Items.FERMENTED_SPIDER_EYE.getDefaultInstance()
             );
         }

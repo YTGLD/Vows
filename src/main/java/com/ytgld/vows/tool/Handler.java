@@ -2,6 +2,7 @@ package com.ytgld.vows.tool;
 
 import com.ytgld.vows.Vows;
 import com.ytgld.vows.attributre.VowsAttributes;
+import com.ytgld.vows.items.vows.magic.PainSoul;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.Identifier;
 import net.minecraft.world.entity.LivingEntity;
@@ -54,6 +55,7 @@ public class Handler {
                 if (data >= soulValue) {
                     return;
                 }
+                number = PainSoul.addShieldDouble(player,number);
                 int newValue = data + number;
                 if (newValue > soulValue) {
                     newValue = soulValue;

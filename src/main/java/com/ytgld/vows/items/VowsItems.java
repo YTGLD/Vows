@@ -4,7 +4,9 @@ import com.ytgld.vows.Vows;
 import com.ytgld.vows.block.VowsBlocks;
 import com.ytgld.vows.items.vows.hunger.*;
 import com.ytgld.vows.items.vows.magic.CtrlMagic;
+import com.ytgld.vows.items.vows.magic.PainSoul;
 import com.ytgld.vows.items.vows.magic.SoulDrive;
+import com.ytgld.vows.items.vows.magic.StrongerShield;
 import com.ytgld.vows.items.vows.shield.*;
 import com.ytgld.vows.items.vows.war.*;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -76,9 +78,14 @@ public class VowsItems {
     public static final DeferredHolder<Item ,Item > CtrlMagic_ =
             REGISTRY.register("ctrl_magic",(Identifier)->new CtrlMagic(new Item.Properties().setId(ResourceKey.create(Registries.ITEM,Identifier))));
 
-
     public static final DeferredHolder<Item ,Item > SoulDrive_ =
             REGISTRY.register("soul_drive",(Identifier)->new SoulDrive(new Item.Properties().setId(ResourceKey.create(Registries.ITEM,Identifier))));
+
+    public static final DeferredHolder<Item ,Item > PainSoul_ =
+            REGISTRY.register("pain_soul",(Identifier)->new PainSoul(new Item.Properties().setId(ResourceKey.create(Registries.ITEM,Identifier))));
+
+    public static final DeferredHolder<Item ,Item > StrongerShield_ =
+            REGISTRY.register("stronger_shield",(Identifier)->new StrongerShield(new Item.Properties().setId(ResourceKey.create(Registries.ITEM,Identifier))));
 
 
 

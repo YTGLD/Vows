@@ -122,6 +122,19 @@
 
 
 
+  "vows.vows.pain_soul": "顺我者昌，逆我者亡",
+  "item.vows.pain_soul": "苦痛誓约",
+  "vows.vows.pain_soul.1": "灵魂护盾容量随生命修正而增长",
+  "vows.vows.pain_soul.2": "灵魂护盾可更有效的恢复",
+  "vows.vows.pain_soul.3": "最大生命值降低五分之三",
+  "vows.vows.pain_soul.4": "灵魂护盾容量可随生命修正变化而减少",
+
+
+  "vows.vows.stronger_shield": "以刚克柔",
+  "item.vows.stronger_shield": "强盾之力",
+  "vows.vows.stronger_shield.1": "灵魂护盾可吸收所有魔法伤害",
+  "vows.vows.stronger_shield.2": "灵魂护盾在被击碎后需要更长时间来重启",
+
   "vows.vows.soul_drive": "魔力的代价",
   "item.vows.soul_drive": "灵魂驱使",
   "vows.vows.soul_drive.1": "自身的魔法抗性提高十分之七",

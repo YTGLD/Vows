@@ -37,6 +37,8 @@ public class VowsTab {
                             b.accept(VowsItems.BoneEmperor_.get());
                             b.accept(VowsItems.CtrlMagic_.get());
                             b.accept(VowsItems.SoulDrive_.get());
+                            b.accept(VowsItems.PainSoul_.get());
+                            b.accept(VowsItems.StrongerShield_.get());
                         })
                         .build();
             });

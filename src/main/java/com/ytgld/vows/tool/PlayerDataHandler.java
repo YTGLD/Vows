@@ -15,6 +15,7 @@ import net.neoforged.neoforge.registries.NeoForgeRegistries;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.function.Supplier;
@@ -51,6 +52,11 @@ public class PlayerDataHandler {
                     .sync(new CompoundTagSync())
                     .serialize(CompoundTag.CODEC.fieldOf("entity_tag"))
                     .build()
+    );
+    public static final Supplier<AttachmentType<IntAndStringSyncHandler.ISClass>> theIntAndStringSyncHandler = ATTACHMENT_TYPES.register(
+            "counter", () -> AttachmentType.builder(()->new IntAndStringSyncHandler.ISClass(new HashMap<>()))
+                    .sync(new IntAndStringSyncHandler()).serialize(IntAndStringSyncHandler.CODEC.
+                            fieldOf("counter")).build()
     );
     public static class CompoundTagSync implements AttachmentSyncHandler<CompoundTag> {
 

@@ -7,6 +7,8 @@ import com.ytgld.vows.client.RenderVowsItem;
 import com.ytgld.vows.items.BaseVows;
 import com.ytgld.vows.tool.Handler;
 import com.ytgld.vows.tool.Light;
+import com.ytgld.vows.tool.RecipePlugin;
+import com.ytgld.vows.tool.RegisterRecipeConfig;
 import net.minecraft.core.Holder;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.damagesource.DamageTypes;
@@ -17,10 +19,12 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.food.FoodData;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.TooltipFlag;
 import net.neoforged.neoforge.event.entity.living.LivingIncomingDamageEvent;
 
 import java.util.List;
+import java.util.Set;
 
 public class ChecksBalances extends BaseVows {
     public ChecksBalances(Properties properties) {
@@ -99,5 +103,29 @@ public class ChecksBalances extends BaseVows {
     }
     public float hungerDown(LivingEntity livingEntity){
         return Handler.doValue(0.0225f,livingEntity);
+    }
+    @RecipePlugin
+    public static class Recipe implements RegisterRecipeConfig {
+
+        @Override
+        public List<ItemStack> itemList() {
+            return List.of(
+                    Items.APPLE.getDefaultInstance(),
+                    Items.ECHO_SHARD.getDefaultInstance(),
+                    Items.ROTTEN_FLESH.getDefaultInstance()
+            );
+        }
+        @Override
+        public boolean canRecipe(Set<Item> items) {
+            return items.contains(this.itemList().get(0).getItem())
+                    && items.contains(this.itemList().get(1).getItem())
+                    && items.contains(this.itemList().get(2).getItem())
+                    ;
+        }
+
+        @Override
+        public String output() {
+            return Handler.mixinName("checks_balances");
+        }
     }
 }

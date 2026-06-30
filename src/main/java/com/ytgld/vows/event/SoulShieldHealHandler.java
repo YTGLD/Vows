@@ -1,7 +1,11 @@
 package com.ytgld.vows.event;
 
 import com.ytgld.vows.attributre.VowsAttributes;
+import com.ytgld.vows.other.VowsDamageTypes;
 import com.ytgld.vows.tool.Handler;
+import net.minecraft.tags.DamageTypeTags;
+import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.entity.ai.attributes.AttributeInstance;
 import net.minecraft.world.entity.player.Player;
 import net.neoforged.neoforge.event.entity.living.LivingDamageEvent;
@@ -50,7 +54,11 @@ public class SoulShieldHealHandler {
                         modify = 0.3f;
                     }
                     float newDamage = damage * (0.3f / modify);
-                    event.setNewDamage(newDamage);
+                    if (!allDamage(living,event.getSource())) {
+                        event.setNewDamage(newDamage);
+                    }else {
+                        event.setNewDamage(0);
+                    }
                 } else {
                     Handler.setDataValue(living,VowsAttributes.soulShield,0);
                     AttributeInstance time = living.getAttribute(VowsAttributes.soulShieldHealCooldown);
@@ -61,6 +69,16 @@ public class SoulShieldHealHandler {
                 }
             }
         }
+    }
+    private static boolean allDamage(Player player, DamageSource source){
+        if (source.is(DamageTypeTags.WITCH_RESISTANT_TO)
+                || source.is(DamageTypes.MAGIC)
+                || source.is(VowsDamageTypes.thePlayerMagic)) {
+            if (Handler.has(player, Handler.mixinName("stronger_shield"))) {
+                return true;
+            }
+        }
+        return false;
     }
     private static void upDataSoulShield(Player player){
         if (player.tickCount % 20 == 1) {
