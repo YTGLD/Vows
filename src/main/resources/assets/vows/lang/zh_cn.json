@@ -1,0 +1,168 @@
+{
+  "vows.vows": "誓令",
+  "vows.vows.attribute": "宣告誓言后：",
+  "vows.vows.has": "你已宣告此誓言",
+  "vows.vows.max": "你已宣告太多的誓言",
+  "vows.attribute.soul_shield": "灵魂护盾容量",
+  "vows.attribute.soul_shield_speed": "灵魂护盾恢复速度",
+  "vows.attribute.soul_shield_heal_cooldown": "最大灵魂护盾冷却时间",
+  "vows.attribute.soul_shield_stronger": "灵魂护盾强度",
+  "item.vows.vows_block": "灵魂火盆",
+  "jei.vows": "将左侧物品放入灵魂火盆中，完成后下蹲加空手右键",
+  "jei.vows.off": "作为辅料解除誓约",
+  "vows.vows.off": "你已解除相关誓约",
+  "vows.vows.cannot.off": "相关誓约并不存在",
+  "vows.attribute.max_vows": "最大可宣誓数",
+
+  "death.attack.player_magic": "%1$s死于%2$s的魔法",
+
+
+
+
+  "item.vows.hungry_wolf": "饥饿之狼",
+  "vows.vows.hungry_wolf": "饥饿如狼，贪婪之约",
+  "vows.vows.hungry_wolf.1": "进食时间缩短五分之二",
+  "vows.vows.hungry_wolf.2": "进食后获得治疗和力量效果",
+  "vows.vows.hungry_wolf.3": "食物恢复的饥饿减少一半",
+
+  "item.vows.checks_balances": "枯萎制衡",
+  "vows.vows.checks_balances": "不灭的佳话，不朽的誓言",
+  "vows.vows.checks_balances.1": "损失饥饿值带来灵魂护盾",
+  "vows.vows.checks_balances.2": "免疫饥饿带来的伤害",
+  "vows.vows.checks_balances.3": "始终感到反常的饥饿与疲劳",
+
+  "item.vows.sacrificial": "腐朽祭祀者",
+  "vows.vows.sacrificial": "幽灵的判官，感受绝望",
+  "vows.vows.sacrificial.1": "食物恢复的饥饿值和饱和度增加约三分之二",
+  "vows.vows.sacrificial.2": "始终感到异常疲劳和饥饿",
+
+  "item.vows.famine_constraints": "饥荒制约",
+  "vows.vows.famine_constraints": "反制黑暗的手段之一",
+  "vows.vows.famine_constraints.1": "接近饱腹时提供十分之一伤害和速度",
+  "vows.vows.famine_constraints.2": "饥饿时减少约十分之二的伤害和速度",
+
+  "vows.vows.disaster": "恐怖的线条",
+  "item.vows.disaster": "灾难威胁",
+  "vows.vows.disaster.1": "无论饥饿与否，你始终可以疾跑",
+  "vows.vows.disaster.2": "饥饿时速度提高，最多增加五分之一",
+  "vows.vows.disaster.3": "始终感到反常的饥饿与疲劳",
+
+  "vows.vows.alms": "收下这魔鬼的赠礼",
+  "item.vows.alms": "邪恶的施舍",
+  "vows.vows.alms.1": "饥饿转换成生命的速度提高二分之一",
+  "vows.vows.alms.2": "最大生命降低十分之一",
+
+
+
+
+
+  "vows.vows.heavenly_wrath": "不可控的因素",
+  "item.vows.heavenly_wrath": "焚天之怒",
+  "vows.vows.heavenly_wrath.1": "宣告着接近死亡时力量和挥砍速度提高约十分之三",
+  "vows.vows.heavenly_wrath.2": "接近死亡时护甲值减半",
+
+  "vows.vows.breaking_fate": "让它们死！",
+  "item.vows.breaking_fate": "破命之约",
+  "vows.vows.breaking_fate.1": "损失生命带来加成",
+  "vows.vows.breaking_fate.2": "对伤害的敏感度提高五分之一",
+
+  "vows.vows.break_sword": "狼狈的誓言，力量的索取",
+  "item.vows.break_sword": "破剑者",
+  "vows.vows.break_sword.1": "造成的十分之一伤害会转换为生命值",
+  "vows.vows.break_sword.2": "自身难以治疗",
+
+  "vows.vows.war_fortress": "无法理喻的威压",
+  "item.vows.war_fortress": "战争要塞",
+  "vows.vows.war_fortress.1": "攻击削弱目标，若无法施加则造成额外伤害",
+  "vows.vows.war_fortress.2": "造成的任意伤害降低五分之一",
+
+  "vows.vows.death_string": "享受最后的起舞",
+  "item.vows.death_string": "死亡之弦",
+  "vows.vows.death_string.1": "造成的伤害会随着挥砍逐渐提高",
+  "vows.vows.death_string.2": "对目标的第一击伤害降低十分之九",
+
+  "vows.vows.rage": "破裂长空的嘶吼",
+  "item.vows.rage": "愤怒的战吼",
+  "vows.vows.rage.1": "接近满血时造成的任意伤害提高十分之三",
+  "vows.vows.rage.2": "伤害敏感度随生命值变化",
+
+
+
+
+
+
+
+  "vows.vows.soul_life": "踏入轮回通天路",
+  "item.vows.soul_life": "绝命魂师",
+  "vows.vows.soul_life.1": "获得大量灵魂护盾",
+  "vows.vows.soul_life.2": "灵魂护盾会在接近破碎时获得加强",
+  "vows.vows.soul_life.3": "生命值减少约五分之一",
+
+  "vows.vows.judge": "你，无罪",
+  "item.vows.judge": "判官",
+  "vows.vows.judge.1": "获得极高的击退抗性",
+  "vows.vows.judge.2": "身着盔甲更容易损毁",
+
+  "vows.vows.break_shield": "黑暗的装甲诅咒",
+  "item.vows.break_shield": "破御祭祀",
+  "vows.vows.break_shield.1": "对伤害的抗性提高五分之一",
+  "vows.vows.break_shield.2": "不死图腾对你无效",
+
+  "vows.vows.break_heart": "无情之道",
+  "item.vows.break_heart": "碎心者之誓言",
+  "vows.vows.break_heart.1": "护甲和护甲韧性提高十分之九",
+  "vows.vows.break_heart.2": "最大生命减少十分之三",
+
+  "vows.vows.bone_emperor": "你的傲骨就是无稽之谈",
+  "item.vows.bone_emperor": "尊骨契约",
+  "vows.vows.bone_emperor.1": "灵魂护盾转换为纯粹的抗性",
+  "vows.vows.bone_emperor.2": "受到的最小伤害不小于二",
+
+
+
+
+
+
+
+
+  "vows.vows.pain_soul": "顺我者昌，逆我者亡",
+  "item.vows.pain_soul": "苦痛誓约",
+  "vows.vows.pain_soul.1": "灵魂护盾容量随生命修正而增长",
+  "vows.vows.pain_soul.2": "灵魂护盾可更有效的恢复",
+  "vows.vows.pain_soul.3": "最大生命值降低五分之三",
+  "vows.vows.pain_soul.4": "灵魂护盾容量可随生命修正变化而减少",
+
+
+  "vows.vows.stronger_shield": "以刚克柔",
+  "item.vows.stronger_shield": "强盾之力",
+  "vows.vows.stronger_shield.1": "灵魂护盾可吸收所有魔法伤害",
+  "vows.vows.stronger_shield.2": "灵魂护盾在被击碎后需要更长时间来重启",
+
+  "vows.vows.soul_drive": "魔力的代价",
+  "item.vows.soul_drive": "灵魂驱使",
+  "vows.vows.soul_drive.1": "自身的魔法抗性提高十分之七",
+  "vows.vows.soul_drive.2": "造成的魔法伤害降低二分之一",
+
+  "vows.vows.ctrl_magic": "大局已定",
+  "item.vows.ctrl_magic": "魔法掌控",
+  "vows.vows.ctrl_magic.1": "造成的魔法类型伤害提高五分之一",
+  "vows.vows.ctrl_magic.2": "将造成物理伤害的一半转换成魔法类型",
+  "vows.vows.ctrl_magic.3": "对穿透伤害的敏感度显著提高",
+
+
+
+
+
+
+
+
+
+
+
+
+  "vows.vows.hyperplasia": "物质的进一步衰败",
+  "item.vows.hyperplasia": "无止增生之约",
+  "vows.vows.hyperplasia.1": "最大生命提高五分之二",
+  "vows.vows.hyperplasia.2": "所有治疗提高五分之一",
+  "vows.vows.hyperplasia.3": "增生瘤体使你的速度降低十分之三"
+}

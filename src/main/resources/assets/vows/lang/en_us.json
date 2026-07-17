@@ -1,0 +1,136 @@
+{
+  "vows.vows": "Vows",
+  "vows.vows.attribute": "After declaring this vow:",
+  "vows.vows.has": "You have already declared this vow",
+  "vows.vows.max": "You have declared too many vows",
+  "vows.attribute.soul_shield": "Soul Shield Capacity",
+  "vows.attribute.soul_shield_speed": "Soul Shield Recovery Speed",
+  "vows.attribute.soul_shield_heal_cooldown": "Soul Shield Recharge Delay",
+  "vows.attribute.soul_shield_stronger": "Soul Shield Strength",
+  "item.vows.vows_block": "Soul Brazier",
+  "jei.vows": "Place the item into the Soul Brazier, then sneak and right-click with an empty hand",
+  "jei.vows.off": "Use as a catalyst to remove a vow",
+  "vows.vows.off": "The corresponding vow has been removed",
+  "vows.vows.cannot.off": "The corresponding vow does not exist",
+  "vows.attribute.max_vows": "Nax vows size",
+
+  "death.attack.player_magic": "%1$s was killed by %2$s's magic",
+
+  "item.vows.hungry_wolf": "Hungry Wolf",
+  "vows.vows.hungry_wolf": "As Hungry as a Wolf, Covenant of Greed",
+  "vows.vows.hungry_wolf.1": "Eating time is reduced by 40%",
+  "vows.vows.hungry_wolf.2": "Gain Regeneration and Strength after eating",
+  "vows.vows.hungry_wolf.3": "Food restores 50% less Hunger",
+
+  "item.vows.checks_balances": "Withering Balance",
+  "vows.vows.checks_balances": "An Undying Tale, an Immortal Oath",
+  "vows.vows.checks_balances.1": "Losing Hunger grants Soul Shield",
+  "vows.vows.checks_balances.2": "Immune to starvation damage",
+  "vows.vows.checks_balances.3": "You constantly feel unnatural hunger and fatigue",
+
+  "item.vows.sacrificial": "Decayed Sacrificer",
+  "vows.vows.sacrificial": "Judge of the Specters, Embrace Despair",
+  "vows.vows.sacrificial.1": "Food restores about 66% more Hunger and Saturation",
+  "vows.vows.sacrificial.2": "You constantly feel extreme hunger and fatigue",
+
+  "item.vows.famine_constraints": "Famine Constraint",
+  "vows.vows.famine_constraints": "One Way to Resist the Darkness",
+  "vows.vows.famine_constraints.1": "Near full Hunger, gain 10% Damage and Speed",
+  "vows.vows.famine_constraints.2": "While hungry, lose about 20% Damage and Speed",
+
+  "vows.vows.disaster": "Lines of Terror",
+  "item.vows.disaster": "Disaster's Threat",
+  "vows.vows.disaster.1": "You can always sprint regardless of Hunger",
+  "vows.vows.disaster.2": "Movement Speed increases while hungry, up to 20%",
+  "vows.vows.disaster.3": "You constantly feel unnatural hunger and fatigue",
+
+  "vows.vows.alms": "Accept the Devil's Gift",
+  "item.vows.alms": "Evil Alms",
+  "vows.vows.alms.1": "Hunger converts into Health 50% faster",
+  "vows.vows.alms.2": "Maximum Health reduced by 10%",
+
+  "vows.vows.heavenly_wrath": "An Uncontrollable Force",
+  "item.vows.heavenly_wrath": "Heavenly Wrath",
+  "vows.vows.heavenly_wrath.1": "Near death, gain about 30% Attack Damage and Attack Speed",
+  "vows.vows.heavenly_wrath.2": "Armor is halved while near death",
+
+  "vows.vows.breaking_fate": "Let Them Die!",
+  "item.vows.breaking_fate": "Fatebreaker",
+  "vows.vows.breaking_fate.1": "Taking damage grants combat bonuses",
+  "vows.vows.breaking_fate.2": "Damage sensitivity increased by 20%",
+
+  "vows.vows.break_sword": "A Wretched Oath, the Price of Power",
+  "item.vows.break_sword": "Swordbreaker",
+  "vows.vows.break_sword.1": "10% of damage dealt is converted into Health",
+  "vows.vows.break_sword.2": "Healing is significantly less effective",
+
+  "vows.vows.war_fortress": "Unreasonable Oppression",
+  "item.vows.war_fortress": "War Fortress",
+  "vows.vows.war_fortress.1": "Attacks inflict Weakness; if they cannot, deal bonus damage instead",
+  "vows.vows.war_fortress.2": "All damage dealt is reduced by 20%",
+
+  "vows.vows.death_string": "Enjoy the Final Dance",
+  "item.vows.death_string": "String of Death",
+  "vows.vows.death_string.1": "Damage increases with consecutive strikes",
+  "vows.vows.death_string.2": "The first hit against a target deals 90% less damage",
+
+  "vows.vows.rage": "A Roar That Shatters the Sky",
+  "item.vows.rage": "War Cry of Rage",
+  "vows.vows.rage.1": "Near full Health, all damage dealt is increased by 30%",
+  "vows.vows.rage.2": "Damage sensitivity changes with your Health",
+
+  "vows.vows.soul_life": "Walk the Path Beyond Reincarnation",
+  "item.vows.soul_life": "Soul Reaper",
+  "vows.vows.soul_life.1": "Gain a large amount of Soul Shield",
+  "vows.vows.soul_life.2": "Soul Shield becomes stronger when close to breaking",
+  "vows.vows.soul_life.3": "Maximum Health reduced by about 20%",
+
+  "vows.vows.judge": "You Are Innocent.",
+  "item.vows.judge": "Judge",
+  "vows.vows.judge.1": "Gain extremely high Knockback Resistance",
+  "vows.vows.judge.2": "Armor wears out much faster",
+
+  "vows.vows.break_shield": "The Curse of Dark Armor",
+  "item.vows.break_shield": "Shieldbreaker Ritual",
+  "vows.vows.break_shield.1": "Damage resistance increased by 20%",
+  "vows.vows.break_shield.2": "Totems of Undying no longer work for you",
+
+  "vows.vows.break_heart": "The Path Without Mercy",
+  "item.vows.break_heart": "Heartbreaker Vow",
+  "vows.vows.break_heart.1": "Armor and Armor Toughness increased by 90%",
+  "vows.vows.break_heart.2": "Maximum Health reduced by 30%",
+
+  "vows.vows.bone_emperor": "Your Pride Is Meaningless",
+  "item.vows.bone_emperor": "Bone Emperor's Pact",
+  "vows.vows.bone_emperor.1": "Soul Shield is converted into pure Damage Resistance",
+  "vows.vows.bone_emperor.2": "Damage taken is never lower than 2",
+
+  "vows.vows.pain_soul": "Those Who Follow Shall Prosper",
+  "item.vows.pain_soul": "Covenant of Pain",
+  "vows.vows.pain_soul.1": "Soul Shield Capacity scales with maximum Health",
+  "vows.vows.pain_soul.2": "Soul Shield recovers more efficiently",
+  "vows.vows.pain_soul.3": "Maximum Health reduced by 60%",
+  "vows.vows.pain_soul.4": "Soul Shield Capacity also decreases as maximum Health decreases",
+
+  "vows.vows.stronger_shield": "Overcome Softness with Strength",
+  "item.vows.stronger_shield": "Bulwark's Strength",
+  "vows.vows.stronger_shield.1": "Soul Shield absorbs all magic damage",
+  "vows.vows.stronger_shield.2": "Soul Shield takes longer to recharge after breaking",
+
+  "vows.vows.soul_drive": "The Price of Magic",
+  "item.vows.soul_drive": "Soul Drive",
+  "vows.vows.soul_drive.1": "Magic Resistance increased by 70%",
+  "vows.vows.soul_drive.2": "Magic damage you deal is reduced by 50%",
+
+  "vows.vows.ctrl_magic": "The Outcome Is Decided",
+  "item.vows.ctrl_magic": "Arcane Mastery",
+  "vows.vows.ctrl_magic.1": "Magic damage dealt increased by 20%",
+  "vows.vows.ctrl_magic.2": "Half of your physical damage is converted into magic damage",
+  "vows.vows.ctrl_magic.3": "Greatly increased vulnerability to armor-piercing damage",
+
+  "vows.vows.hyperplasia": "Further Decay of Flesh",
+  "item.vows.hyperplasia": "Vow of Endless Growth",
+  "vows.vows.hyperplasia.1": "Maximum Health increased by 40%",
+  "vows.vows.hyperplasia.2": "All healing increased by 20%",
+  "vows.vows.hyperplasia.3": "Overgrown flesh reduces Movement Speed by 30%"
+}
